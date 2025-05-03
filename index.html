@@ -48,12 +48,12 @@
             }
             
             .navbar-brand img {
-                height: 40px;
+                height: 80px;
                 transition: all 0.3s ease;
             }
             
             .navbar.scrolled .navbar-brand img {
-                height: 36px;
+                height: 70px;
             }
             
             .nav-link {
@@ -229,6 +229,10 @@
                 border-radius: 12px;
                 margin-bottom: 20px;
             }
+
+            .footer-navbar{
+                height: ;
+            }
             
             /* Partner Section */
             .partner-section {
@@ -398,6 +402,7 @@
                 height: 5px;
                 background: var(--gradient-primary);
             }
+            .footer
             
             .social-icon {
                 width: 40px;
@@ -453,6 +458,34 @@
             }
 
             
+        </style>
+
+        <style>
+            .course-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin-bottom: 20px;
+                height: 100%;
+            }
+            .course-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .card-img-top {
+                height: 180px;
+                object-fit: cover;
+            }
+            .badge {
+                font-weight: 500;
+            }
+            .instructor-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .rating {
+                color: #ffc107;
+            }
         </style>
 
 
@@ -520,7 +553,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="https://placehold.co/180x40" alt="SkillTern Logo" class="img-fluid">
+                    <img src="./assets/images/skillternlogo.png" alt="SkillTern Logo" class="img-fluid">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -698,7 +731,7 @@
         </section>
 
         <!-- Who is this for -->
-        <section id="course" class="section bg-light">
+        <section  class="section bg-light">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center mb-5">
@@ -976,12 +1009,141 @@
             </div>
         </section>
 
+        <div class="container py-5" id="course">
+            <h2 class="text-center mb-4">Featured Courses</h2>
+            <div class="row">
+                <!-- Course Card 1 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card course-card">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Web Development">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary">Beginner</span>
+                                <span class="text-success fw-bold">$89.99</span>
+                            </div>
+                            <h5 class="card-title">Web Development Fundamentals</h5>
+                            <p class="card-text text-muted">Learn HTML, CSS, and JavaScript to build modern responsive websites.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Instructor" class="instructor-img me-2">
+                                    <small>John Smith</small>
+                                </div>
+                                <!-- <div>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                                    <small class="text-muted"> (1,245)</small>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 8 weeks</small>
+                                <small class="text-muted"><i class="fas fa-users me-1"></i> 45 lectures</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Course Card 2 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card course-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Data Science">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-warning text-dark">Intermediate</span>
+                                <span class="text-success fw-bold">$119.99</span>
+                            </div>
+                            <h5 class="card-title">Data Science with Python</h5>
+                            <p class="card-text text-muted">Master data analysis, visualization, and machine learning with Python.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Instructor" class="instructor-img me-2">
+                                    <small>Sarah Johnson</small>
+                                </div>
+                                <!-- <div>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                                    <small class="text-muted"> (892)</small>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 10 weeks</small>
+                                <small class="text-muted"><i class="fas fa-users me-1"></i> 62 lectures</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Course Card 3 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card course-card">
+                        <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Mobile App Development">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-danger">Advanced</span>
+                                <span class="text-success fw-bold">$149.99</span>
+                            </div>
+                            <h5 class="card-title">Mobile App Development</h5>
+                            <p class="card-text text-muted">Build cross-platform mobile apps with React Native and Firebase.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
+                                    <small>Michael Chen</small>
+                                </div>
+                                <!-- <div>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                    <small class="text-muted"> (1,532)</small>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 12 weeks</small>
+                                <small class="text-muted"><i class="fas fa-users me-1"></i> 78 lectures</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Course Card 4 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card course-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Digital Marketing">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-info">Beginner</span>
+                                <span class="text-success fw-bold">$79.99</span>
+                            </div>
+                            <h5 class="card-title">Digital Marketing Mastery</h5>
+                            <p class="card-text text-muted">Learn SEO, social media marketing, and Google Analytics strategies.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Instructor" class="instructor-img me-2">
+                                    <small>Emily Wilson</small>
+                                </div>
+                                <!-- <div>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.6</span>
+                                    <small class="text-muted"> (756)</small>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> 6 weeks</small>
+                                <small class="text-muted"><i class="fas fa-users me-1"></i> 32 lectures</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Course Content -->
         <section class="section">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Course Content</h2>
+                        <h2 class="section-title">Course Content forex management</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -1165,7 +1327,7 @@
                 <div class="row">
                     <div class="col-lg-4 mb-4 mb-lg-0">
                         <div class="mb-4">
-                            <img src="https://via.placeholder.com/180x40?text=SkillTern+Logo" alt="SkillTern Logo" class="img-fluid mb-3" style="height: 40px;">
+                            <img src="./assets/images/skillternlogo.png" alt="SkillTern Logo" class="img-fluid footer-navbar mb-3" style="height: 80px;">
                             <p class="text-white-50">A doorway to the world of Forex trading and management.</p>
                         </div>
                         <div class="d-flex gap-3">
@@ -1269,6 +1431,29 @@
                         item.classList.add('active');
                     }
                 });
+            });
+        </script>
+
+
+        <script>
+            // JavaScript for additional functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add click event to all course cards
+                const courseCards = document.querySelectorAll('.course-card');
+                
+                courseCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const courseTitle = this.querySelector('.card-title').textContent;
+                        console.log(`Course selected: ${courseTitle}`);
+                        // In a real application, you might navigate to a course details page
+                        // window.location.href = `/course-details?title=${encodeURIComponent(courseTitle)}`;
+                    });
+                    
+                    // Change cursor to pointer on hover
+                    card.style.cursor = 'pointer';
+                });
+                
+                // You could add more interactive features here
             });
         </script>
     </body>
