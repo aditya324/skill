@@ -1,0 +1,1275 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forex Fundamentals | SkillTern</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #2563eb;
+                --primary-dark: #1d4ed8;
+                --secondary: #f59e0b;
+                --secondary-dark: #d97706;
+                --dark: #1e293b;
+                --light: #f8fafc;
+                --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+                --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            }
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+                color: #334155;
+                overflow-x: hidden;
+            }
+            
+            h1, h2, h3, h4, h5, .navbar-brand {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+            }
+            
+            /* Navbar Styles */
+            .navbar {
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+                padding: 15px 0;
+                transition: all 0.4s ease;
+            }
+            
+            .navbar.scrolled {
+                padding: 10px 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+            }
+            
+            .navbar-brand img {
+                height: 40px;
+                transition: all 0.3s ease;
+            }
+            
+            .navbar.scrolled .navbar-brand img {
+                height: 36px;
+            }
+            
+            .nav-link {
+                font-weight: 500;
+                color: #334155 !important;
+                margin: 0 8px;
+                position: relative;
+            }
+            
+            .nav-link:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: var(--primary);
+                transition: width 0.3s ease;
+            }
+            
+            .nav-link:hover:after,
+            .nav-link.active:after {
+                width: 100%;
+            }
+            
+            .hero-section {
+                background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                            url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                padding: 4rem 1rem;
+                color: white;
+            }
+            
+            .hero-section:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: linear-gradient(to top, #f8fafc, transparent);
+                z-index: 1;
+            }
+            
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                animation: fadeInUp 1s ease forwards;
+                opacity: 0;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+                font-weight: 800;
+                line-height: 1.2;
+                background: linear-gradient(to right, #ffffff, #e2e8f0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.25rem;
+                line-height: 1.8;
+                animation: fadeInUp 1.5s ease forwards;
+                opacity: 0;
+            }
+            
+            .btn {
+                transition: all 0.3s ease;
+            }
+            
+            .enroll-btn:hover {
+                background-color: #f59e0b;
+                transform: translateY(-2px);
+            }
+            
+            .explore-btn:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: #fff;
+                transform: translateY(-2px);
+            }
+            
+            .hero-img {
+                animation: zoomIn 1.5s ease forwards;
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+            }
+            
+            @keyframes zoomIn {
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+            }
+            
+            /* Section Styles */
+            .section {
+                padding: 100px 0;
+                position: relative;
+            }
+            
+            .section-title {
+                position: relative;
+                display: inline-block;
+                margin-bottom: 60px;
+                font-weight: 700;
+            }
+            
+            .section-title:after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 4px;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--gradient-primary);
+                border-radius: 2px;
+            }
+            
+            .section-title.text-start:after {
+                left: 0;
+                transform: none;
+            }
+            
+            /* Card Styles */
+            .feature-card {
+                border: none;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+                height: 100%;
+            }
+            
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            }
+            
+            .feature-icon {
+                width: 70px;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--gradient-primary);
+                color: white;
+                font-size: 28px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+            }
+            
+            /* Partner Section */
+            .partner-section {
+                background: var(--gradient-primary);
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .partner-section:before {
+                content: '';
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 300px;
+                height: 300px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 50%;
+            }
+            
+            .partner-section:after {
+                content: '';
+                position: absolute;
+                bottom: -150px;
+                left: -150px;
+                width: 400px;
+                height: 400px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 50%;
+            }
+            
+            .partner-card {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .partner-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            /* Timeline */
+            .timeline {
+                position: relative;
+                padding-left: 30px;
+            }
+            
+            .timeline:before {
+                content: '';
+                position: absolute;
+                left: 7px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: var(--primary);
+            }
+            
+            .timeline-item {
+                position: relative;
+                padding-bottom: 30px;
+            }
+            
+            .timeline-item:last-child {
+                padding-bottom: 0;
+            }
+            
+            .timeline-dot {
+                position: absolute;
+                left: -30px;
+                top: 0;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background: var(--primary);
+                border: 3px solid white;
+                box-shadow: 0 0 0 3px var(--primary);
+            }
+            
+            /* Testimonials */
+            .testimonial-card {
+                border-left: 4px solid var(--secondary);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+            
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Course Modules */
+            .course-module {
+                border-left: 3px solid var(--primary);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .course-module:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to right, rgba(37, 99, 235, 0.03), transparent);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .course-module:hover {
+                transform: translateX(5px);
+            }
+            
+            .course-module:hover:before {
+                opacity: 1;
+            }
+            
+            /* Enrollment Section */
+            .enrollment-section {
+                background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .enrollment-section:before {
+                content: '';
+                position: absolute;
+                top: -50px;
+                right: -50px;
+                width: 200px;
+                height: 200px;
+                background: rgba(245, 158, 11, 0.1);
+                border-radius: 50%;
+            }
+            
+            .price-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+            
+            .price-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            }
+            
+            /* Footer */
+            .footer {
+                background: #0f172a;
+                color: white;
+                position: relative;
+            }
+            
+            .footer:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: var(--gradient-primary);
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+            
+            .social-icon:hover {
+                background: var(--primary);
+                transform: translateY(-3px);
+            }
+            
+            /* Animations */
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-15px); }
+                100% { transform: translateY(0px); }
+            }
+            
+            .floating {
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            /* Responsive Adjustments */
+            @media (max-width: 992px) {
+                .hero-title {
+                    font-size: 2.8rem;
+                }
+                
+                .section {
+                    padding: 80px 0;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.2rem;
+                }
+                
+                .section {
+                    padding: 60px 0;
+                }
+                
+                .section-title {
+                    margin-bottom: 40px;
+                }
+            }
+
+            
+        </style>
+
+
+        <style>
+        
+        
+            .styled-form {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            }
+        
+            .form-floating > .form-control,
+            .form-floating > .form-select,
+            .form-floating > textarea {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: #fff !important;
+            border: none;
+            }
+        
+            .form-floating > label {
+            color: #ddd;
+            }
+        
+            .form-control:focus,
+            .form-select:focus,
+            textarea:focus {
+            border: 1px solid #ffc107 !important;
+            box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
+            }
+        
+            .btn-warning {
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            }
+        
+            .btn-warning:hover {
+            background-color: #e0a800;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+            }
+
+            .form-select {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                color: #fff !important;
+                border: none;
+            }
+            
+            .form-select option {
+                background-color: #141D30;
+                color: #fff;
+            }
+            
+            .form-select:focus {
+                border: 1px solid #ffc107 !important;
+                box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
+            }
+        </style>
+    </head>
+    <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://via.placeholder.com/180x40?text=SkillTern+Logo" alt="SkillTern Logo" class="img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#partner">Partner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course">Course</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#careers">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#highlights">Highlights</a>
+                        </li>
+                        
+                    </ul>
+                    <a href="#enroll" class="btn btn-primary ms-lg-3 px-4">Enroll Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content text-center text-lg-start">
+                        <h1 class="hero-title mb-4">Forex Fundamentals</h1>
+                        <p class="lead text-white mb-5">A doorway to the world of Forex trading and management. Gain industry-relevant skills through our internship-embedded program.</p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                            <a href="#enroll" class="btn btn-warning btn-lg px-4 py-3 shadow-lg enroll-btn">Enroll Now <i class="fas fa-arrow-right ms-2"></i></a>
+                            <a href="#course" class="btn btn-outline-light btn-lg px-4 py-3 shadow explore-btn">Explore Course</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- About Founder -->
+        <section id="about" class="section bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-5 mb-lg-0">
+                        <div class="position-relative">
+                            <img src="./assets/images/image-500x600.jpg" alt="Sudip Dhar" class="img-fluid rounded-3 shadow">
+                            <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
+                                <h5 class="mb-0">Founder & CEO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h2 class="section-title text-start mb-4">About The Founder</h2>
+                        <h3 class="mb-3">Sudip Dhar</h3>
+                        <p class="text-muted mb-4">Founder & CEO, SkillTern | ISB Alum</p>
+                        <p class="mb-4">Sudip Dhar is the Founder and CEO of SkillTerm, an innovative EdTech platform dedicated to bridging the gap between education & employment. With nearly two decades of experience in career services, industry-academia partnerships, and skill development, he has transformed how students and professionals acquire job-ready skills.</p>
+                        <p class="mb-5">Driven by the vision of industry-immersive and employment-oriented learning, Sudip pioneered internship-embedded programs at SkillTerm, ensuring real-world experience alongside theoretical knowledge.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="https://www.linkedin.com/in/sudip-dhar-38bb6814/" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin-in me-2"></i> Connect</a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Company -->
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">About SkillTern</h2>
+                        <p class="lead text-muted">Bridging the gap between education and employment</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="feature-card p-5 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Our Mission</h3>
+                            <p class="text-center text-muted">SkillTerm is a pioneering EdTech platform dedicated to bridging the gap between education and employment by offering hands-on, industry-immersive learning experiences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-card p-5 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Internship Embedded Programme</h3>
+                            <p class="text-center text-muted">Our flagship IEP ensures that students gain not only theoretical knowledge but also practical exposure through structured internships integrated within their learning journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+                <h2 class="section-title">OFFICIAL COURSE PARTNER </h2>
+            
+            </div>
+        </div>
+        <!-- Course Partners -->
+        <section id="partner" class="section partner-section">
+            
+            <div class="container position-relative">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-5 mb-lg-0">
+                        <div class="partner-card p-4 p-lg-5">
+                            <div class="text-center mb-4">
+                                <img src="./assets/images/cropped-IBS-Modified-Logo_Transparent_White-BG-1-qziz4k6528sj8iy9xom9bi661qgpqgtpyhgqttmimo.png" alt="IBS FinTech" class="img-fluid">
+                            </div>
+                            <div class="badge bg-secondary mb-3">OFFICIAL COURSE PARTNER</div>
+                            <h3 class="text-white">In Collaboration With</h3>
+                            <h2 class="text-white mb-4">IBS FinTech</h2>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3 text-secondary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white mb-0">Trusted by 400+ entities globally</h5>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3 text-secondary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white mb-0">$1 Trillion+ transactions processed</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="ps-lg-5">
+                            <h2 class="text-white mb-4">Industry-Leading <span class="text-secondary">Course Curation</span></h2>
+                            
+                            <div class="bg-white bg-opacity-10 p-4 rounded-3 mb-4">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0 text-secondary">
+                                        <i class="fas fa-award fa-2x"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-4">
+                                        <h4 class="text-white">Cutting-Edge TreasuryTech Solutions</h4>
+                                        <p class="text-white-50">Specializing in cash & liquidity, treasury, risk management, trade finance, and supply chain finance digitization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-white-50 mb-4">IBS FinTech stands as a beacon of India's technological prowess, celebrated for its cutting-edge TreasuryTech solutions aimed at driving holistic digitization across cash & liquidity, treasury, risk management, trade finance, and supply chain finance.</p>
+                            
+                            <p class="text-white-50 mb-5">Skilltern is collaborating with IBS Fintech to empower students through a blend of theoretical frameworks, hands-on simulations, and real-world case studies, ensuring they gain practical insights and industry-relevant skills for future leadership roles in corporate finance.</p>
+                            
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="https://ibsfintech.com/" target="_blank" class="btn btn-outline-light"><i class="fas fa-external-link-alt me-2"></i> Visit IBS FinTech</a>
+                                <a href="#course" class="btn btn-secondary"><i class="fas fa-book-open me-2"></i> View Curriculum</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who is this for -->
+        <section id="course" class="section bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Who is this programme for?</h2>
+                        <p class="lead text-muted">This comprehensive course is specifically designed for students who wish to deepen their understanding of the foreign exchange (forex) market.</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 text-center h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Finance Students</h3>
+                            <p class="text-muted">Pursuing a career in finance, international business, or risk management.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 text-center h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Aspiring Traders</h3>
+                            <p class="text-muted">Looking to acquire skills for effective forex management and technical analysis.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 text-center h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Professionals</h3>
+                            <p class="text-muted">Wanting to navigate the complexities of global currency markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Duration -->
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Program Duration: <span class="text-primary">6 Months</span></h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card p-5 text-center bg-primary text-white">
+                            <h3 class="display-5 fw-bold mb-2">4 Months</h3>
+                            <p class="mb-0">Hands on Learning</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-5 text-center bg-secondary text-white">
+                            <h3 class="display-5 fw-bold mb-2">4 Weeks</h3>
+                            <p class="mb-0">Market Simulation Project and Paid Internship</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-5 text-center bg-dark text-white">
+                            <h3 class="display-5 fw-bold mb-2">15 Days</h3>
+                            <p class="mb-0">Placement Preparation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Learn Forex -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Forex Trading" class="img-fluid rounded-3 shadow">
+                            <div class="position-absolute bottom-0 start-0 bg-white p-3 m-3 rounded-3 shadow-sm">
+                                <h5 class="text-primary mb-0">Forex Market Insights</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="section-title text-start mb-4">Why Learn Forex Management</h2>
+                        <p class="mb-4">By the end of this course, you'll not only have a comprehensive understanding of forex markets but also the confidence and practical skills to excel in your career.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Manage corporate treasuries</h5>
+                                </div>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Thrive in the trading room</h5>
+                                </div>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Innovate in fintech</h5>
+                                </div>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Unlimited opportunities with the right knowledge</h5>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#enroll" class="btn btn-primary mt-3 px-4">Start Learning Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Opportunities -->
+        <section id="careers" class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Career Opportunities in Forex</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card h-100">
+                            <div class="card-header bg-primary text-white p-4">
+                                <h3 class="h5 mb-0">Banking Sector</h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <h4 class="h6">Forex Dealer/Trader</h4>
+                                <ul class="small text-muted">
+                                    <li>Assisting in forex trading desks</li>
+                                    <li>Handling interbank transactions</li>
+                                    <li>Managing forex risk</li>
+                                </ul>
+                                <h4 class="h6 mt-3">Treasury Analyst</h4>
+                                <ul class="small text-muted">
+                                    <li>Monitoring exchange rates</li>
+                                    <li>Forex exposure management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card h-100">
+                            <div class="card-header bg-primary text-white p-4">
+                                <h3 class="h5 mb-0">Corporate Treasury</h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <h4 class="h6">Forex Analyst</h4>
+                                <ul class="small text-muted">
+                                    <li>Managing foreign currency transactions</li>
+                                    <li>Hedging strategies</li>
+                                    <li>Working with financial institutions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card h-100">
+                            <div class="card-header bg-primary text-white p-4">
+                                <h3 class="h5 mb-0">Financial Services</h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <h4 class="h6">Forex Risk Analyst</h4>
+                                <ul class="small text-muted">
+                                    <li>Analyzing forex risk</li>
+                                    <li>Advising on currency movements</li>
+                                </ul>
+                                <h4 class="h6 mt-3">Forex Sales Executive</h4>
+                                <ul class="small text-muted">
+                                    <li>Selling forex services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card h-100">
+                            <div class="card-header bg-primary text-white p-4">
+                                <h3 class="h5 mb-0">FinTech Companies</h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <h4 class="h6">Financial Analyst</h4>
+                                <ul class="small text-muted">
+                                    <li>International payments</li>
+                                    <li>Forex trading platforms</li>
+                                </ul>
+                                <h4 class="h6 mt-3">Operations Associate</h4>
+                                <ul class="small text-muted">
+                                    <li>Managing forex transactions</li>
+                                    <li>Cross-border trade</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Highlights -->
+        <section id="highlights" class="section bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Programme Highlights</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="text-center mb-3">IEP Program</h3>
+                            <p class="text-center text-muted mb-0">Guaranteed paid Internship for hands on learning with minimum stipend of Rs. 5000</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Industry Experts</h3>
+                            <p class="text-center text-muted mb-0">Courses Co-Curation by Corporate Institutions and Industry Experts</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Career Services</h3>
+                            <p class="text-center text-muted mb-0">Strong Career Services for Industry readiness</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Practitioner Lead</h3>
+                            <p class="text-center text-muted mb-0">Market practitioners with years of experience deliver the course</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Mentoring</h3>
+                            <p class="text-center text-muted mb-0">One to one Mentoring of students by Industry experts</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Placement Prep</h3>
+                            <p class="text-center text-muted mb-0">Resume building and placement preparation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Content -->
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Course Content</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-exchange-alt text-primary me-2"></i> Fundamental of Foreign Exchange Market</h4>
+                            <ul class="text-muted">
+                                <li>What is Forex Exchange</li>
+                                <li>Currency Pairs</li>
+                                <li>Hierarchy of Currencies</li>
+                            </ul>
+                        </div>
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-chart-line text-primary me-2"></i> Factors Affecting Forex Market</h4>
+                            <ul class="text-muted">
+                                <li>Economic Indicators</li>
+                                <li>Interest Rates</li>
+                                <li>Central bank policies</li>
+                                <li>Geo-Political Scenarios</li>
+                            </ul>
+                        </div>
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-calculator text-primary me-2"></i> Exchange Rate Mechanism</h4>
+                            <ul class="text-muted">
+                                <li>Calculation of Rates</li>
+                                <li>Cross Currency Rates</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-project-diagram text-primary me-2"></i> Forward Premiums and Currency Swaps</h4>
+                            <ul class="text-muted">
+                                <li>Premiums and Discounts</li>
+                                <li>Currency Swaps</li>
+                            </ul>
+                        </div>
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-chart-pie text-primary me-2"></i> Technical Analysis</h4>
+                            <ul class="text-muted">
+                                <li>Chart types and patterns</li>
+                                <li>Essential Indicators and Oscillators</li>
+                                <li>Practical application</li>
+                            </ul>
+                        </div>
+                        <div class="course-module p-4 mb-4">
+                            <h4><i class="fas fa-brain text-primary me-2"></i> Trading Psychology</h4>
+                            <ul class="text-muted">
+                                <li>Risk management essentials</li>
+                                <li>Trading psychology</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Preparation -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="section-title">Placement Preparation</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h4 class="text-center">Project Development</h4>
+                            <p class="small text-center text-muted mb-0">Mentors will assist students in creating accounts and posting projects on GitHub and Kaggle.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4 class="text-center">Interview Coaching</h4>
+                            <p class="small text-center text-muted mb-0">Personalized guidance to help you understand various industries and roles.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4 class="text-center">Resume Assistance</h4>
+                            <p class="small text-center text-muted mb-0">Expert tips on crafting compelling resumes and cover letters.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card p-4 h-100">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4 class="text-center">Networking</h4>
+                            <p class="small text-center text-muted mb-0">Tips on how to leverage professional connections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enrollment Section -->
+        <section id="enroll" class="section enrollment-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mb-5">
+                        <h2 class="text-white mb-3">Ready to Start Your Forex Journey?</h2>
+                        <p class="lead text-white-50">Enroll now and take the first step towards a successful career in forex management.</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="price-card p-5">
+                            <h3 class="text-center text-white mb-4">Course Fees</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-4 p-4 bg-dark rounded-3">
+                                <h4 class="text-white mb-0">Student Discount Price</h4>
+                                <div class="text-end">
+                                    <p class="text-decoration-line-through text-white-50 mb-0">₹60,000</p>
+                                    <h3 class="text-warning mb-0">₹48,999</h3>
+                                </div>
+                            </div>
+
+                            <form class="styled-form">
+                                <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="">
+                                    <label for="name">Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="">
+                                    <label for="email">Email Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                    <input type="tel" class="form-control" id="phone" placeholder="">
+                                    <label for="phone">Phone Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                    <select class="form-select" id="education">
+                                        <option selected disabled value="">Select</option>
+                                        <option>Current Student</option>
+                                        <option>Graduate</option>
+                                        <option>Working Professional</option>
+                                    </select>
+                                    <label for="education">Education Level</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                    <textarea class="form-control" id="questions" placeholder="" style="height: 120px"></textarea>
+                                    <label for="questions">Any questions?</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-warning w-100 btn-lg">Enroll Now <i class="fas fa-arrow-right ms-2"></i></button>
+                                </div>
+                                </div>
+                            </form>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer pt-5 pb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="mb-4">
+                            <img src="https://via.placeholder.com/180x40?text=SkillTern+Logo" alt="SkillTern Logo" class="img-fluid mb-3" style="height: 40px;">
+                            <p class="text-white-50">A doorway to the world of Forex trading and management.</p>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home" class="text-white-50 text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About</a></li>
+                            <li class="mb-2"><a href="#course" class="text-white-50 text-decoration-none">Course</a></li>
+                            <li class="mb-2"><a href="#careers" class="text-white-50 text-decoration-none">Careers</a></li>
+                            <li class="mb-2"><a href="#enroll" class="text-white-50 text-decoration-none">Enroll</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-white mb-4">Programme</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Forex Fundamentals</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Internship Program</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Placement Support</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Contact Us</h5>
+                        <ul class="list-unstyled text-white-50">
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-map-marker-alt mt-1 me-3"></i>
+                                <span>SkillTern Headquarters, India</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-phone mt-1 me-3"></i>
+                                <span>+91 1234567890</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-envelope mt-1 me-3"></i>
+                                <span>info@skilltern.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="my-4 bg-secondary">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="small text-white-50 mb-0">&copy; 2025 SkillTern. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="small text-white-50 mb-0">Designed with <i class="fas fa-heart text-danger"></i> by SunriseDigital</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Sticky navbar on scroll
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Activate navbar item on scroll
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
