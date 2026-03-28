@@ -1,1460 +1,3735 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Forex Fundamentals | SkillTern</title>
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <style>
-            :root {
-                --primary: #2563eb;
-                --primary-dark: #1d4ed8;
-                --secondary: #f59e0b;
-                --secondary-dark: #d97706;
-                --dark: #1e293b;
-                --light: #f8fafc;
-                --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-                --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forex Fundamentals | SkillTern Education Education Education</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary: #f59e0b;
+        --secondary-dark: #d97706;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #334155;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      .navbar-brand {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        padding: 15px 0;
+        transition: all 0.4s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar-brand img {
+        height: 80px;
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled .navbar-brand img {
+        height: 70px;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #334155 !important;
+        margin: 0 8px;
+        position: relative;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+          url("./assets/images/banner1.webp");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 1rem;
+        color: white;
+      }
+
+      .hero-section:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(to top, #f8fafc, transparent);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        animation: fadeInUp 1s ease forwards;
+        opacity: 0;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        background: linear-gradient(to right, #ffffff, #e2e8f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        animation: fadeInUp 1.5s ease forwards;
+        opacity: 0;
+      }
+
+      .btn {
+        transition: all 0.3s ease;
+      }
+
+      .enroll-btn:hover {
+        background-color: #f59e0b;
+        transform: translateY(-2px);
+      }
+
+      .explore-btn:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .hero-img {
+        animation: zoomIn 1.5s ease forwards;
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+      }
+
+      @keyframes zoomIn {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 60px;
+        font-weight: 700;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 4px;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+
+      .section-title.text-start:after {
+        left: 0;
+        transform: none;
+      }
+
+      /* Card Styles */
+      .feature-card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient-primary);
+        color: white;
+        font-size: 28px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
+
+      .footer-navbar {
+        height: ;
+      }
+
+      /* Partner Section */
+      .partner-section {
+        background: var(--gradient-primary);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .partner-section:before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+      }
+
+      .partner-section:after {
+        content: "";
+        position: absolute;
+        bottom: -150px;
+        left: -150px;
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+      }
+
+      .partner-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .partner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .timeline:before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 30px;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 3px solid white;
+        box-shadow: 0 0 0 3px var(--primary);
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        border-left: 4px solid var(--secondary);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Course Modules */
+      .course-module {
+        border-left: 3px solid var(--primary);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .course-module:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(37, 99, 235, 0.03),
+          transparent
+        );
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .course-module:hover {
+        transform: translateX(5px);
+      }
+
+      .course-module:hover:before {
+        opacity: 1;
+      }
+
+      /* Enrollment Section */
+      .enrollment-section {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .enrollment-section:before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: 50%;
+      }
+
+      .price-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .price-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
+      .footer {
+        background: #0f172a;
+        color: white;
+        position: relative;
+      }
+
+      .footer:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+      }
+      .footer .social-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .section {
+          padding: 80px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .section-title {
+          margin-bottom: 40px;
+        }
+      }
+    </style>
+
+    <style>
+      .course-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        height: 100%;
+      }
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .card-img-top {
+        height: 180px;
+        object-fit: cover;
+      }
+      .badge {
+        font-weight: 500;
+      }
+      .instructor-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .rating {
+        color: #ffc107;
+      }
+    </style>
+
+    <style>
+      .styled-form {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .form-floating > .form-control,
+      .form-floating > .form-select,
+      .form-floating > textarea {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        border: none;
+      }
+
+      .form-floating > label {
+        color: #ddd;
+      }
+
+      .form-control:focus,
+      .form-select:focus,
+      textarea:focus {
+        border: 1px solid #ffc107 !important;
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
+      }
+
+      .btn-warning {
+        font-weight: 600;
+        background-color: #FF7300;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .btn-warning:hover {
+        background-color: #e0a800;
+        box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+      }
+
+      .form-select {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        border: none;
+      }
+
+      .form-select option {
+        background-color: #141d30;
+        color: #fff;
+      }
+
+      .form-select:focus {
+        border: 1px solid #ffc107 !important;
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
+      }
+
+      /* About Section Styling */
+      .about-section {
+        background-color: #f8fafc;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 1rem;
+      }
+
+      .lead {
+        font-size: 1.25rem;
+        color: #4a5568;
+      }
+
+      /* Cards Styling */
+      .intro-card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid #3b82f6;
+      }
+
+      .statement-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .statement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .vision-card {
+        background-color: #f0f9ff;
+        border-top: 4px solid #3b82f6;
+      }
+
+      .mission-card {
+        background-color: #f5f3ff;
+        border-top: 4px solid #8b5cf6;
+      }
+
+      .statement-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+
+      .vision-card .statement-icon {
+        background-color: #e0f2fe;
+        color: #3b82f6;
+      }
+
+      .mission-card .statement-icon {
+        background-color: #ede9fe;
+        color: #8b5cf6;
+      }
+
+      /* Program Card */
+      .program-card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-right: 4px solid #10b981;
+      }
+
+      .program-icon {
+        width: 120px;
+        height: 120px;
+        background-color: #d1fae5;
+        color: #10b981;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+
+      /* Process Cards */
+      .process-card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .process-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .process-number {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 3rem;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.05);
+        line-height: 1;
+      }
+
+      .process-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+
+      .learn-card .process-icon {
+        background-color: #e0f2fe;
+        color: #3b82f6;
+      }
+
+      .intern-card .process-icon {
+        background-color: #fef3c7;
+        color: #f59e0b;
+      }
+
+      .win-card .process-icon {
+        background-color: #d1fae5;
+        color: #10b981;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .lead {
+          font-size: 1.1rem;
+        }
+
+        .program-icon {
+          width: 80px;
+          height: 80px;
+          font-size: 32px;
+          margin-top: 20px;
+        }
+      }
+
+      /* Modern Aesthetic Styling */
+      .partners-section {
+        padding: 100px 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9fbfd 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .partners-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 20% 50%,
+          rgba(59, 130, 246, 0.05) 0%,
+          transparent 50%
+        );
+      }
+
+      .display-4 {
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.5px;
+      }
+
+      .divider-gradient {
+        width: 120px;
+        height: 4px;
+        background: #3b82f6;
+        border-radius: 2px;
+      }
+
+      .partner-card-glow {
+        position: relative;
+        height: 220px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+      }
+
+      .partner-card-glow:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+
+      .partner-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .logo-container {
+        height: 80px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .partner-logo {
+        max-height: 100%;
+        max-width: 100%;
+        filter: grayscale(30%) contrast(110%);
+        transition: all 0.5s ease;
+      }
+
+      .partner-card-glow:hover .partner-logo {
+        filter: grayscale(0%) contrast(100%) brightness(110%);
+        transform: scale(1.05);
+      }
+
+      .partner-name {
+        font-weight: 600;
+        color: #2d3748;
+        text-align: center;
+        margin-top: auto;
+        font-size: 1.1rem;
+      }
+
+      .glow {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.15) 0%,
+          transparent 70%
+        );
+        top: -50px;
+        left: -50px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .partner-card-glow:hover .glow {
+        opacity: 1;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .partner-card-glow {
+          height: 180px;
+        }
+        .logo-container {
+          height: 60px;
+        }
+      }
+    </style>
+
+    <style>
+      .nav-pills .nav-link {
+        border-radius: 0;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s;
+      }
+      .nav-pills .nav-link.active {
+        background: transparent;
+        border-bottom: 3px solid #0d6efd;
+        color: #0d6efd;
+      }
+      .partner-logo {
+        height: 40px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+      }
+      .tab-content {
+        border: 1px solid #dee2e6;
+        border-top: none;
+        padding: 1.5rem;
+      }
+    </style>
+
+    <style>
+      :root {
+        --primary: #4365fe;
+        --secondary: #3f37c9;
+        --accent: #4895ef;
+        --light: #f8f9fa;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .course-tabs {
+        border-bottom: none;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .course-tabs .nav-link {
+        color: #495057;
+        font-weight: 500;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px 8px 0 0;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        position: relative;
+        background: rgba(67, 97, 238, 0.1);
+      }
+      .course-tabs .nav-link:hover {
+        background: rgba(67, 97, 238, 0.2);
+      }
+      .course-tabs .nav-link.active {
+        color: white !important;
+        background: var(--primary);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .course-tabs .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid var(--primary);
+      }
+
+      /* Fixed Tab Content Positioning */
+      .tab-content-wrapper {
+        position: relative;
+        min-height: 400px;
+      }
+      .tab-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .tab-pane {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        visibility: hidden;
+      }
+      .tab-pane.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .tab-content-inner {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem;
+        border-top: 4px solid var(--primary);
+      }
+      .partner-logo {
+        height: 50px;
+        object-fit: contain;
+        margin-bottom: 1.5rem;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+      .partner-logo:hover {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+      .course-title {
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      .course-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--accent);
+      }
+      .course-content {
+        line-height: 1.7;
+        color: #555;
+      }
+      .course-features {
+        margin-top: 1.5rem;
+        padding-left: 1.5rem;
+      }
+      .course-features li {
+        margin-bottom: 0.7rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      .course-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+      @media (max-width: 768px) {
+        .course-tabs .nav-link {
+          padding: 0.8rem 1rem;
+          font-size: 0.9rem;
+        }
+        .tab-content-inner {
+          padding: 1.5rem;
+        }
+      }
+
+
+    </style>
+
+    <style>
+    /* ===== HERO SECTION ===== */
+    .hero-bs {
+      margin-top: 80px; /* adjust if navbar is fixed */
+    }
+
+    .hero-slide-bs {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    /* Overlay */
+    .hero-overlay-bs {
+      position: absolute;
+      inset: 0;
+     
+    }
+
+    /* Content above overlay */
+    .hero-slide-bs .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(90deg, #094796, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Mobile Fix */
+    @media (max-width: 768px) {
+      .hero-slide-bs {
+        background-position: center;
+        height: 80vh;
+      }
+    }
+
+    .gradient-text {
+  background: linear-gradient(90deg, #81ace6, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* for better browser support */
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+     @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
             }
-            
-            body {
-                font-family: 'Poppins', sans-serif;
-                color: #334155;
-                overflow-x: hidden;
-            }
-            
-            h1, h2, h3, h4, h5, .navbar-brand {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 600;
-            }
-            
-            /* Navbar Styles */
-            .navbar {
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-                padding: 15px 0;
-                transition: all 0.4s ease;
-            }
-            
-            .navbar.scrolled {
-                padding: 10px 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-            }
-            
-            .navbar-brand img {
-                height: 80px;
-                transition: all 0.3s ease;
-            }
-            
-            .navbar.scrolled .navbar-brand img {
-                height: 70px;
-            }
-            
-            .nav-link {
-                font-weight: 500;
-                color: #334155 !important;
-                margin: 0 8px;
-                position: relative;
-            }
-            
-            .nav-link:after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: var(--primary);
-                transition: width 0.3s ease;
-            }
-            
-            .nav-link:hover:after,
-            .nav-link.active:after {
-                width: 100%;
-            }
-            
-            .hero-section {
-                background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-                            url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                position: relative;
+
+            .carousel-wrapper {
                 overflow: hidden;
-                padding: 4rem 1rem;
-                color: white;
-            }
-            
-            .hero-section:before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
                 width: 100%;
+                
+            }
+
+            .scrolling-carousel {
+                display: flex;
+                width: max-content;
+                animation: scroll 20s linear infinite;
+            }
+
+            .carousel-wrapper:hover .scrolling-carousel {
+                animation-play-state: paused;
+            }
+
+            .logo-item {
+                flex: 0 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            .logo-item img {
                 height: 100px;
-                background: linear-gradient(to top, #f8fafc, transparent);
-                z-index: 1;
-            }
-            
-            .hero-content {
-                position: relative;
-                z-index: 2;
-                animation: fadeInUp 1s ease forwards;
-                opacity: 0;
-            }
-            
-            .hero-title {
-                font-size: 3.5rem;
-                font-weight: 800;
-                line-height: 1.2;
-                background: linear-gradient(to right, #ffffff, #e2e8f0);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                margin-bottom: 1.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.25rem;
-                line-height: 1.8;
-                animation: fadeInUp 1.5s ease forwards;
-                opacity: 0;
-            }
-            
-            .btn {
-                transition: all 0.3s ease;
-            }
-            
-            .enroll-btn:hover {
-                background-color: #f59e0b;
-                transform: translateY(-2px);
-            }
-            
-            .explore-btn:hover {
-                background-color: rgba(255, 255, 255, 0.15);
-                color: #fff;
-                transform: translateY(-2px);
-            }
-            
-            .hero-img {
-                animation: zoomIn 1.5s ease forwards;
-                transform: scale(0.95);
-                opacity: 0;
-            }
-            
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-            }
-            
-            @keyframes zoomIn {
-                to {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                from {
-                    opacity: 0;
-                    transform: scale(0.9);
-                }
-            }
-            
-            /* Section Styles */
-            .section {
-                padding: 100px 0;
-                position: relative;
-            }
-            
-            .section-title {
-                position: relative;
-                display: inline-block;
-                margin-bottom: 60px;
-                font-weight: 700;
-            }
-            
-            .section-title:after {
-                content: '';
-                position: absolute;
-                width: 60px;
-                height: 4px;
-                bottom: -15px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--gradient-primary);
-                border-radius: 2px;
-            }
-            
-            .section-title.text-start:after {
-                left: 0;
-                transform: none;
-            }
-            
-            /* Card Styles */
-            .feature-card {
-                border: none;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                transition: all 0.3s ease;
-                height: 100%;
-            }
-            
-            .feature-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            }
-            
-            .feature-icon {
-                width: 70px;
-                height: 70px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--gradient-primary);
-                color: white;
-                font-size: 28px;
-                border-radius: 12px;
-                margin-bottom: 20px;
-            }
-
-            .footer-navbar{
-                height: ;
-            }
-            
-            /* Partner Section */
-            .partner-section {
-                background: var(--gradient-primary);
-                color: white;
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .partner-section:before {
-                content: '';
-                position: absolute;
-                top: -100px;
-                right: -100px;
-                width: 300px;
-                height: 300px;
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 50%;
-            }
-            
-            .partner-section:after {
-                content: '';
-                position: absolute;
-                bottom: -150px;
-                left: -150px;
-                width: 400px;
-                height: 400px;
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 50%;
-            }
-            
-            .partner-card {
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border-radius: 16px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                transition: all 0.3s ease;
-            }
-            
-            .partner-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            }
-            
-            /* Timeline */
-            .timeline {
-                position: relative;
-                padding-left: 30px;
-            }
-            
-            .timeline:before {
-                content: '';
-                position: absolute;
-                left: 7px;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: var(--primary);
-            }
-            
-            .timeline-item {
-                position: relative;
-                padding-bottom: 30px;
-            }
-            
-            .timeline-item:last-child {
-                padding-bottom: 0;
-            }
-            
-            .timeline-dot {
-                position: absolute;
-                left: -30px;
-                top: 0;
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: var(--primary);
-                border: 3px solid white;
-                box-shadow: 0 0 0 3px var(--primary);
-            }
-            
-            /* Testimonials */
-            .testimonial-card {
-                border-left: 4px solid var(--secondary);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                transition: all 0.3s ease;
-            }
-            
-            .testimonial-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            }
-            
-            /* Course Modules */
-            .course-module {
-                border-left: 3px solid var(--primary);
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .course-module:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(to right, rgba(37, 99, 235, 0.03), transparent);
-                opacity: 0;
-                transition: all 0.3s ease;
-            }
-            
-            .course-module:hover {
-                transform: translateX(5px);
-            }
-            
-            .course-module:hover:before {
-                opacity: 1;
-            }
-            
-            /* Enrollment Section */
-            .enrollment-section {
-                background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-                color: white;
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .enrollment-section:before {
-                content: '';
-                position: absolute;
-                top: -50px;
-                right: -50px;
-                width: 200px;
-                height: 200px;
-                background: rgba(245, 158, 11, 0.1);
-                border-radius: 50%;
-            }
-            
-            .price-card {
-                background: rgba(255, 255, 255, 0.05);
-                backdrop-filter: blur(10px);
-                border-radius: 16px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                transition: all 0.3s ease;
-            }
-            
-            .price-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            }
-            
-            /* Footer */
-            .footer {
-                background: #0f172a;
-                color: white;
-                position: relative;
-            }
-            
-            .footer:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 5px;
-                background: var(--gradient-primary);
-            }
-            .footer
-            
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                border-radius: 50%;
-                transition: all 0.3s ease;
-            }
-            
-            .social-icon:hover {
-                background: var(--primary);
-                transform: translateY(-3px);
-            }
-            
-            /* Animations */
-            @keyframes float {
-                0% { transform: translateY(0px); }
-                50% { transform: translateY(-15px); }
-                100% { transform: translateY(0px); }
-            }
-            
-            .floating {
-                animation: float 6s ease-in-out infinite;
-            }
-            
-            /* Responsive Adjustments */
-            @media (max-width: 992px) {
-                .hero-title {
-                    font-size: 2.8rem;
-                }
-                
-                .section {
-                    padding: 80px 0;
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .hero-title {
-                    font-size: 2.2rem;
-                }
-                
-                .section {
-                    padding: 60px 0;
-                }
-                
-                .section-title {
-                    margin-bottom: 40px;
-                }
+                object-fit: contain;
             }
 
             
-        </style>
 
-        <style>
-            .course-card {
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                margin-bottom: 20px;
-                height: 100%;
-            }
-            .course-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            .card-img-top {
-                height: 180px;
-                object-fit: cover;
-            }
-            .badge {
-                font-weight: 500;
-            }
-            .instructor-img {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-            .rating {
-                color: #ffc107;
-            }
-        </style>
+ 
+
+    /* WRAPPER */
+    .showcase-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 60px auto;
+      aspect-ratio: 16 / 8;
+     
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* TRACK */
+    .showcase-track {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* CARDS */
+    .showcase-card {
+      width: 180px;
+      height: 220px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transition: 0.5s;
+    }
+
+    /* ACTIVE FULL */
+    .showcase-card:nth-child(1),
+    .showcase-card:nth-child(2) {
+      top: 0;
+      left: 0;
+      transform: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
+
+    /* STACK */
+    .showcase-card:nth-child(3) {
+      left: 55%;
+    }
+
+    .showcase-card:nth-child(4) {
+      left: calc(55% + 200px);
+    }
+
+    .showcase-card:nth-child(5) {
+      left: calc(55% + 400px);
+    }
+
+    .showcase-card:nth-child(n + 6) {
+      left: calc(55% + 600px);
+      opacity: 0;
+    }
+
+    /* CONTENT */
+    .card-info {
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      transform: translateY(-50%);
+      width: 280px;
+      color: #fff;
+      display: none;
+    }
+
+    .showcase-card:nth-child(2) .card-info {
+      display: block;
+    }
+
+    .card-title2 {
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .card-desc {
+      margin: 10px 0 20px;
+      font-size: 14px;
+    }
+
+    .card-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255,255,255,0.8);
+      cursor: pointer;
+    }
+
+    /* NAV */
+    .showcase-nav {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .showcase-nav button {
+      width: 40px;
+      height: 35px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    
+      transition: 0.3s;
+    }
+
+    .showcase-nav button:hover {
+      transform: scale(1.1);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      .showcase-wrapper {
+        width: 95%;
+        aspect-ratio: 16 / 10;
+      }
+
+      .showcase-card {
+        width: 120px;
+        height: 160px;
+      }
+
+      .showcase-card:nth-child(3) {
+        left: 60%;
+      }
+
+      .showcase-card:nth-child(4),
+      .showcase-card:nth-child(5) {
+        display: none;
+      }
+
+      .card-info {
+        left: 20px;
+        width: 80%;
+      }
+
+      .card-title2 {
+        font-size: 22px;
+      }
+
+      .card-desc {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .showcase-wrapper {
+        aspect-ratio: 16 / 12;
+      }
+
+      .showcase-card {
+        width: 90px;
+        height: 120px;
+      }
+
+      .showcase-card:nth-child(3) {
+        display: none;
+      }
+
+     
+
+      .card-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+    }
 
 
-        <style>
-        
-        
-            .styled-form {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            }
-        
-            .form-floating > .form-control,
-            .form-floating > .form-select,
-            .form-floating > textarea {
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            color: #fff !important;
-            border: none;
-            }
-        
-            .form-floating > label {
-            color: #ddd;
-            }
-        
-            .form-control:focus,
-            .form-select:focus,
-            textarea:focus {
-            border: 1px solid #ffc107 !important;
-            box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
-            }
-        
-            .btn-warning {
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            }
-        
-            .btn-warning:hover {
-            background-color: #e0a800;
-            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-            }
 
-            .form-select {
-                background-color: rgba(255, 255, 255, 0.1) !important;
-                color: #fff !important;
-                border: none;
-            }
+
+  </style>
+
+
+ <style>
+        
+
+/* Section */
+.slider-section {
+  width: 100%;
+  padding: 60px 0;
+}
+
+/* Container */
+.slider-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+/* Slide card */
+.slide-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Image */
+.slide-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+/* Navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #888;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Smooth transition */
+.healthcareSwiper .swiper-slide {
+  transition: all 0.4s ease;
+}
+
+/* Blur all non-active slides */
+.healthcareSwiper .swiper-slide:not(.swiper-slide-active) img {
+  filter: blur(3px);
+  opacity: 0.45;
+  transform: scale(0.95);
+}
+
+/* Active slide */
+.healthcareSwiper .swiper-slide-active img {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Optional overlay for side slides */
+.healthcareSwiper .swiper-slide:not(.swiper-slide-active)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.slide-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Image */
+.slide-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Small top-left strip */
+.slide-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #094796;
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 20px;
+  z-index: 2;
+  letter-spacing: 0.3px;
+}
+
+
+.fintech-section {
+  position: relative;
+  background: url('/mnt/data/skillternbanner.webp') center/cover no-repeat;
+  min-height: 500px;
+}
+
+/* DARK OVERLAY (VERY IMPORTANT) */
+.fintech-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 27, 78, 0.95) 0%,
+    rgba(9, 71, 150, 0.85) 50%,
+    rgba(3, 27, 78, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.z-2 {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reuse previous styles */
+.small-text {
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.logo-box {
+  width: 50px;
+  height: 50px;
+  background: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.info-card {
+  background: #ffffff;
+  color: #000;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  height: 100%;
+}
+
+.icon-circle {
+  width: 35px;
+  height: 35px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* SECTION */
+.fintech-section {
+  background: url('./assets/images/skillternbanner.webp') center/cover no-repeat;
+  padding: 120px 0;
+  position: relative;
+}
+
+.fintech-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 18, 55, 0.95) 0%,
+    rgba(2, 18, 55, 0.55) 45%,
+    rgba(2, 18, 55, 0.95) 100%
+  );
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT */
+.left-content {
+  max-width: 520px;
+}
+
+.sub-text {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.logo-img {
+  height: 90px;
+}
+
+/* BADGE */
+.partner-badge {
+  background: #F49F00;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* STATS */
+.stats-wrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 55px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #fff;
+  color: #003F72;
+  padding: 22px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 15px;
+
+  width: calc(33.33% - 14px); /* desktop */
+  min-width: 150px;
+}
+
+/* ICON */
+.icon-badge {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #868686;
+  background: #eef4ff;
+  border-radius: 50%;
+  position: absolute;
+  margin-bottom: 15px;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-badge img {
+  width: 30px;
+}
+
+/* RIGHT */
+.info-wrapper {
+  max-width: 520px;
+  width: 100%;
+}
+
+.info-heading h4 {
+  font-size: 26px;
+}
+
+/* BOX */
+.info-box {
+  background: linear-gradient(135deg, #0a2a6b, #0d47a1);
+  padding: 30px;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.info-box p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d6e4ff;
+}
+
+/* BUTTONS */
+.btn-group-custom {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-outline-light {
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.btn-light {
+  background: #fff;
+  color: #0d47a1;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 992px) {
+
+  .fintech-section {
+    padding: 80px 0;
+  }
+
+  .left-content {
+    text-align: center;
+    margin: auto;
+  }
+
+  .stats-wrapper {
+    justify-content: center;
+  }
+
+  .stat-card {
+    width: calc(50% - 10px); /* tablet */
+  }
+
+  .info-wrapper {
+    margin: auto;
+  }
+
+  .info-heading {
+    text-align: center;
+  }
+
+  .btn-group-custom {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-group-custom .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 576px) {
+
+  .stat-card {
+    width: 100%; /* stack */
+  }
+
+  .logo-img {
+    height: 70px;
+  }
+
+  .info-box {
+    padding: 20px;
+  }
+
+  .info-heading h4 {
+    font-size: 22px;
+  }
+}
+
+
+@keyframes scroll-left-to-right {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* normal (right → left) */
+.scrolling-carousel {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+/* reverse (left → right) */
+.scrolling-carousel.reverse {
+    display: flex;
+    width: max-content;
+    animation: scroll-left-to-right 20s linear infinite;
+}
+
+/* pause on hover */
+.carousel-wrapper:hover .scrolling-carousel {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    padding: 0 1.5rem;
+}
+
+.logo-item img {
+    height: 100px;
+    object-fit: contain;
+}
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  </head>
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navigation -->
+    <div style="overflow: hidden">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#home">
+  <img
+    src="./assets/images/logoooooo-removebg-preview.png"
+    alt="SkillTern Education Education Education Logo"
+    class="img-fluid"
+    style="height: 100px;"  
+  >
+</a>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto d-flex" style="gap: 50px;">
+              <li class="nav-item">
+                <a class="nav-link active"  href="#course">Courses </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#partner">Our Partners</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#highlights">Course Highlights</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#careers">Careers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#highlights">Highlights</a>
+              </li> -->
+            </ul>
             
-            .form-select option {
-                background-color: #141D30;
-                color: #fff;
-            }
-            
-            .form-select:focus {
-                border: 1px solid #ffc107 !important;
-                box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
-            }
-        </style>
-    </head>
-    <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="./assets/images/skillternlogo.png" alt="SkillTern Logo" class="img-fluid">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#partner">Partner</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#course">Course</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#careers">Careers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#highlights">Highlights</a>
-                        </li>
-                        
-                    </ul>
-                    <a href="#enroll" class="btn btn-primary ms-lg-3 px-4">Enroll Now</a>
-                </div>
+            <a href="/Form.php" class="btn btn-primary ms-lg-3 px-4"
+              >College Registration</a
+            >
+
+            <a href="#enroll" class="btn btn-outline-primary ms-lg-3 px-4"
+              >Enroll Now</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+  <section class="hero-bs">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+       <div class="hero-slide-bs" style="background-image: url('./assets/images/Frame\ 53\(1\).png');">
+          <div class="hero-overlay-bs"></div>
+
+          <div class="container h-100 d-flex align-items-center">
+            <div class="col-lg-6 text-white">
+              
+              <h1 class="display-4 fw-bold mb-3 gradient-text">
+                Learn. Intern. Win.
+              </h1>
+
+              <p class=" mb-4">
+                Internship Embedded Programs with real-world experience.
+              </p>
+
+              <a href="#enroll" class="btn btn-warning btn-lg me-2">
+                Enroll Now
+              </a>
+
+              <a href="#course" class="btn btn-outline-light btn-lg">
+                Explore Courses
+              </a>
+
             </div>
-        </nav>
+          </div>
+        </div>
+      </div>
 
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 hero-content text-center text-lg-start">
-                        <h1 class="hero-title mb-4">Forex Fundamentals</h1>
-                        <p class="lead text-white mb-5">A doorway to the world of Forex trading and management. Gain industry-relevant skills through our internship-embedded program.</p>
-                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
-                            <a href="#enroll" class="btn btn-warning btn-lg px-4 py-3 shadow-lg enroll-btn">Enroll Now <i class="fas fa-arrow-right ms-2"></i></a>
-                            <a href="#course" class="btn btn-outline-light btn-lg px-4 py-3 shadow explore-btn">Explore Course</a>
-                        </div>
-                    </div>
+      <!-- Slide 2 -->
+     <div class="carousel-item ">
+        <div class="hero-slide-bs" style="background-image: url('./assets/images/Frame.webp');">
+          <div class="hero-overlay-bs"></div>
+
+          <div class="container h-100 d-flex align-items-center">
+            <div class="col-lg-6 text-white">
+              
+              <h1 class="display-4 fw-bold mb-3 gradient-text">
+                Master Digital Marketing with AI
+              </h1>
+
+              <p class=" mb-4">
+                Gain hands-on Digital Marketing with AI through live projects, mentorship, paid internships, and placement support. Course curated with One Click Academy
+              </p>
+
+              <a href="#enroll" class="btn btn-warning btn-lg me-2">
+                Enroll Now
+              </a>
+
+              <a href="#course" class="btn btn-outline-light btn-lg">
+                Explore Courses
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item ">
+        <div class="hero-slide-bs" style="background-image: url('./assets/images/banner3.png');">
+          <div class="hero-overlay-bs"></div>
+
+          <div class="container h-100 d-flex align-items-center">
+            <div class="col-lg-6 text-white">
+              
+              <h1 class="display-4 fw-bold mb-3 gradient-text">
+                Agentic AI & ML Essentials
+              </h1>
+
+              <p class=" mb-4">
+                With SkillTern Education, learn AI & ML through hands-on projects using Python and top tools. Gain real internship experience and become job-ready with course curation partners RedPluto Analytics.
+              </p>
+
+              <a href="#enroll" class="btn btn-warning btn-lg me-2">
+                Enroll Now
+              </a>
+
+              <a href="#course" class="btn btn-outline-light btn-lg">
+                Explore Courses
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</section>
+
+ <section class="showcase-wrapper">
+  <div class="showcase-track">
+
+    <div class="showcase-card" style="background-image:url('./assets/images/iit/IMG_0148.jpeg')">
+      <div class="card-info">
+        <div class="card-title2">IIT Madras Campus</div>
+        <div class="card-desc">A lush green campus with world-class infrastructure.</div>
+        <button class="card-btn">See More</button>
+      </div>
+    </div>
+
+    <div class="showcase-card" style="background-image:url('./assets/images/iit/IMG_0149.jpeg')">
+      <div class="card-info">
+        <div class="card-title2">Hostel Life</div>
+        <div class="card-desc">Comfortable residential facilities for students.</div>
+        <button class="card-btn">See More</button>
+      </div>
+    </div>
+
+    <div class="showcase-card" style="background-image:url('./assets/images/iit/IMG_0150.jpeg')">
+      <div class="card-info">
+        <div class="card-title2">Academics</div>
+        <div class="card-desc">Top-tier education with advanced research labs.</div>
+        <button class="card-btn">See More</button>
+      </div>
+    </div>
+
+    <div class="showcase-card" style="background-image:url('./assets/images/iit/IMG_0151.jpeg')">
+      <div class="card-info">
+        <div class="card-title2">Placements</div>
+        <div class="card-desc">Excellent placement opportunities with top companies.</div>
+        <button class="card-btn">See More</button>
+      </div>
+    </div>
+    <div class="showcase-card" style="background-image:url('./assets/images/iit/IIT\ Madras\ \(1\).PNG')">
+      <div class="card-info">
+        <div class="card-title2">Placements</div>
+        <div class="card-desc">Excellent placement opportunities with top companies.</div>
+        <button class="card-btn">See More</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="showcase-nav">
+    <button class="nav-prev">◁</button>
+    <button class="nav-next">▷</button>
+  </div>
+</section>
+
+
+
+ 
+
+
+<section class="slider-section">
+  <div class="slider-container">
+
+    <div class="swiper healthcareSwiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+  <div class="slide-card">
+    <img src="./assets/images/WhatsApp Image 2026-03-27 at 12.55.34 PM (1).jpeg" />
+    <span class="slide-badge">AMC</span>
+  </div>
+</div>
+
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="./assets/hulimavu/vlcsnap-2026-01-06-13h22m45s978.webp" />
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="./assets/hulimavu/vlcsnap-2026-01-06-13h24m46s285.webp" />
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="./assets/hulimavu/vlcsnap-2026-01-06-13h25m09s540.webp" />
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="./assets/hulimavu/vlcsnap-2026-01-06-13h28m24s049.webp" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+  </div>
+</section>
+
+
+<section class="fintech-section">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+
+      <!-- LEFT -->
+      <div class="col-lg-6 text-white left-content">
+
+        <p class="sub-text">In Collaboration with</p>
+
+        <div class="logo-wrapper">
+          <img src="./assets/images/ibstransparent.png" class="logo-img" />
+        </div>
+
+        <div style="margin-left: 80px;">
+          <span class="partner-badge">
+            Official Course Partner
+          </span>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-wrapper">
+
+          <div class="stat-card">
+            <div class="icon-badge">
+              <img src="./assets/images/Vector(1).png" />
+            </div>
+            <p>Trusted by 400+<br>entities globally</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon-badge">
+              <img src="./assets/images/fi_10716523.png" />
+            </div>
+            <p>$1 Trillion+ Transactions<br>processed</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon-badge">
+              <img src="./assets/images/fi_8193325.png" />
+            </div>
+            <p>Serving Fortune 500 enterprises<br>and leading banks worldwide</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+
+        <div class="info-wrapper">
+
+          <div class="info-heading text-white mb-3">
+            <p class="sub-text mb-1">
+              INDUSTRY LEADING COURSE CURATION
+            </p>
+            <h4 class="fw-bold">BY IBS FINTECH</h4>
+          </div>
+
+          <div class="info-box text-white">
+
+            <p>
+              IBS FinTech stands as a beacon of India's technological prowess,
+              celebrated for its cutting-edge TreasuryTech solutions aimed at
+              driving holistic digitization across cash & liquidity, treasury,
+              risk management, trade finance, and supply chain finance.
+            </p>
+
+            <p>
+              For the first time ever, IBS FinTech brings its industry expertise
+              into specialized learning programs. Powered by cutting edge TreasuryTech,
+              this industry-led course brings real world expertise in cash & liquidity,
+              treasury, risk, trade finance, and supply chain finance digitization into
+              the classroom.
+            </p>
+
+            <div class="btn-group-custom">
+              <button class="btn btn-outline-light btn-sm px-4 d-flex justify-content-between ">
+               <span ><img style="width: 15px; margin-right: 10px;" src="./assets/images/XMLID_152_.png" alt=""></span> Visit IBS FINTECH
+              </button>
+              <button class="btn btn-light btn-sm px-4">
+                <span ><img style="width: 15px; margin-right: 10px;" src="./assets/images/fi_1150592.png" alt=""></span>View Curriculum
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+ <div class="container my-5">
+        <div class="carousel-wrapper py-3">
+            <div class="scrolling-carousel">
+
+                <!-- Logos (set 1) -->
+                <div class="d-flex">
+                    <div class="logo-item"><img src="./assets/images/ibsfintechnewlogo.png" alt="Logo 1"></div>
+                    <div class="logo-item"><img src="./assets/images/redplutonewlogo.png" alt="Logo 3"></div>
+                    <div class="logo-item"><img src="./assets/images/oneclicknewlogo.png" alt="Logo 4"></div>
+                    <div class="logo-item"><img src="./assets/images/sunrisenewlogo.png" alt="Logo 5"></div>
+                    <div class="logo-item"><img src="./assets/images/cyringeai.png" alt="Logo 5"></div>
+                    <div class="logo-item"><img src="./assets/images/dhaarini.png" alt="Logo 5"></div>
+                    <div class="logo-item"><img src="./assets/images/udayam ai.png" alt="Logo 5"></div>
+                    <!-- <div class="logo-item"><img src="./img/logo/oneclicklogo.jpg" alt="Logo 4"></div> -->
+
+                </div>
+
+                <!-- Logos (set 2 for looping effect) -->
+                   <div class="d-flex">
+                    <div class="logo-item"><img src="./assets/images/ibsfintechnewlogo.png" alt="Logo 1"></div>
+                    <div class="logo-item"><img src="./assets/images/redplutonewlogo.png" alt="Logo 3"></div>
+                    <div class="logo-item"><img src="./assets/images/oneclicknewlogo.png" alt="Logo 4"></div>
+                    <div class="logo-item"><img src="./assets/images/sunrisenewlogo.png" alt="Logo 5"></div>
                     
-                </div>
-            </div>
-        </section>
-        
+                    
+                    <!-- <div class="logo-item"><img src="./img/logo/oneclicklogo.jpg" alt="Logo 4"></div> -->
 
-        <!-- About Founder -->
-        <section id="about" class="section bg-light">
-            <div class="container">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+ <div class="container my-5">
+        <div class="carousel-wrapper py-3">
+            <div class="scrolling-carousel reverse">
+
+                <!-- Logos (set 1) -->
+                <div class="d-flex">
+                    <div class="logo-item"><img src="./assets/images/iitmadras.png" alt="Logo 1"></div>
+                    <div class="logo-item"><img src="./assets/images/adityainstituteofmanagement.png" alt="Logo 3"></div>
+                    <div class="logo-item"><img src="./assets/images/stjoseoh.png" alt="Logo 4"></div>
+ 
+                    
+                    <!-- <div class="logo-item"><img src="./img/logo/oneclicklogo.jpg" alt="Logo 4"></div> -->
+
+                </div>
+
+                <!-- Logos (set 2 for looping effect) -->
+                   <div class="d-flex">
+                    <div class="logo-item"><img src="./assets/images/iitmadras.png" alt="Logo 1"></div>
+                    <div class="logo-item"><img src="./assets/images/adityainstituteofmanagement.png" alt="Logo 3"></div>
+                    <div class="logo-item"><img src="./assets/images/stjoseoh.png" alt="Logo 4"></div>
+                 
+                    
+                    <!-- <div class="logo-item"><img src="./img/logo/oneclicklogo.jpg" alt="Logo 4"></div> -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+      <!-- About Founder -->
+
+      <!-- About Company -->
+      <section class="section about-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-center mb-5">
+              <h2 class="section-title">About SkillTern Education </h2>
+              <p class="lead">
+                Bridging the gap between education and employment
+              </p>
+            </div>
+          </div>
+
+          <!-- Introduction Block -->
+          <div class="row mb-5">
+            <div class="col-12">
+              <div class="intro-card p-4 p-lg-5 text-center">
+                <p class="mb-4">
+                  SkillTern Education  is a pioneering EdTech platform dedicated to
+                  bridging the gap between education and employment by offering
+                  hands-on, industry-immersive learning experiences.
+                </p>
+                <p>
+                  With a mission to equip students with real-world skills and
+                  career opportunities, SkillTern Education  collaborates with corporate
+                  partners, industry experts, and practitioners to curate
+                  cutting-edge courses embedded with internships and live
+                  project use cases.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision & Mission Cards -->
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="statement-card vision-card p-4 p-lg-5 h-100">
+                <div class="statement-icon mx-auto mb-4">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="text-center mb-3">Our Vision</h3>
+                <p class="text-center">
+                  To redefine education by making industry-integrated,
+                  career-focused learning the new standard—ensuring every
+                  learner is ready for today's opportunities and tomorrow's
+                  challenges.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="statement-card mission-card p-4 p-lg-5 h-100">
+                <div class="statement-icon mx-auto mb-4">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="text-center mb-3">Our Mission</h3>
+                <p class="text-center">
+                  To deliver practitioner-led, internship-embedded, and
+                  industry-certified learning experiences that equip learners
+                  with practical skills, professional exposure, and the
+                  confidence to thrive in the careers of tomorrow.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- IEP Program Highlight -->
+          <div class="row mb-5">
+            <div class="col-12">
+              <div class="program-card p-4 p-lg-5">
                 <div class="row align-items-center">
-                    <div class="col-lg-5 mb-5 mb-lg-0">
-                        <div class="position-relative">
-                            <img src="./assets/images/image-500x600.jpg" alt="Sudip Dhar" class="img-fluid rounded-3 shadow">
-                            <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
-                                <h5 class="mb-0">Founder & CEO</h5>
-                            </div>
-                        </div>
+                  <div class="col-lg-8">
+                    <h3 class="mb-3">Internship Embedded Programme (IEP)</h3>
+                    <p>
+                      Our flagship IEP ensures that students gain not only
+                      theoretical knowledge but also practical exposure through
+                      structured internships integrated within their learning
+                      journey.
+                    </p>
+                    <p>
+                      This unique approach empowers students with
+                      industry-relevant skills, corporate mentorship, and
+                      job-ready expertise, transforming traditional education
+                      into a dynamic, employment-driven ecosystem.
+                    </p>
+                  </div>
+                  <div class="col-lg-4 text-center">
+                    <div class="program-icon mx-auto">
+                      <i class="fas fa-medal"></i>
                     </div>
-                    <div class="col-lg-7">
-                        <h2 class="section-title text-start mb-4">About The Founder</h2>
-                        <h3 class="mb-3">Sudip Dhar</h3>
-                        <p class="text-muted mb-4">Founder & CEO, SkillTern | ISB Alum</p>
-                        <p class="mb-4">Sudip Dhar is the Founder and CEO of SkillTerm, an innovative EdTech platform dedicated to bridging the gap between education & employment. With nearly two decades of experience in career services, industry-academia partnerships, and skill development, he has transformed how students and professionals acquire job-ready skills.</p>
-                        <p class="mb-5">Driven by the vision of industry-immersive and employment-oriented learning, Sudip pioneered internship-embedded programs at SkillTerm, ensuring real-world experience alongside theoretical knowledge.</p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="https://www.linkedin.com/in/sudip-dhar-38bb6814/" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin-in me-2"></i> Connect</a>
-                        
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- About Company -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">About SkillTern</h2>
-                        <p class="lead text-muted">Bridging the gap between education and employment</p>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="feature-card p-5 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Our Mission</h3>
-                            <p class="text-center text-muted">SkillTerm is a pioneering EdTech platform dedicated to bridging the gap between education and employment by offering hands-on, industry-immersive learning experiences.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="feature-card p-5 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Internship Embedded Programme</h3>
-                            <p class="text-center text-muted">Our flagship IEP ensures that students gain not only theoretical knowledge but also practical exposure through structured internships integrated within their learning journey.</p>
-                        </div>
-                    </div>
-                </div>
+          <!-- Learn Intern Win Process -->
+          <div class="row">
+            <div class="col-12 text-center mb-4">
+              <h3>Our "Learn, Intern, Win" Approach</h3>
             </div>
-        </section>
+            <div class="col-md-4">
+              <div class="process-card learn-card p-4 h-100 text-center">
+                <div class="process-number">1</div>
+                <div class="process-icon mx-auto mb-3">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <h4 class="mb-3">Learn</h4>
+                <p>
+                  Cutting-edge courses designed with industry experts to deliver
+                  relevant knowledge
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="process-card intern-card p-4 h-100 text-center">
+                <div class="process-number">2</div>
+                <div class="process-icon mx-auto mb-3">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h4 class="mb-3">Intern</h4>
+                <p>
+                  Structured internships integrated within the learning journey
+                  for practical experience
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="process-card win-card p-4 h-100 text-center">
+                <div class="process-number">3</div>
+                <div class="process-icon mx-auto mb-3">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <h4 class="mb-3">Win</h4>
+                <p>
+                  Job-ready expertise and career opportunities with our
+                  corporate partners
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add this alternative design inside the same section -->
+      <section class="section partners-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-center mb-6">
+              <h2 class="section-title">Our Esteemed Partners</h2>
+              <p class="lead">
+                Collaborating with industry innovators to deliver transformative
+                learning
+              </p>
+              <div class="divider-gradient mx-auto"></div>
+            </div>
+          </div>
+
+          <div class="row g-4 justify-content-center mt-3">
+       
+            <a
+              href="https://ibsfintech.com/us/"
+              class="col-6 col-md-4 col-lg-3"
+            >
+              <div class="partner-card-glow">
+                <div class="partner-content">
+                  <div class="logo-container">
+                    <img
+                      src="./assets/images/cropped-IBS-Modified-Logo_Transparent_White-BG-1-qziz4k6528sj8iy9xom9bi661qgpqgtpyhgqttmimo.png"
+                      alt="IBS FinTech"
+                      class="partner-logo"
+                    />
+                  </div>
+                  <div class="partner-name">IBS FinTech</div>
+                </div>
+                <div class="glow"></div>
+              </div>
+            </a>
+
+            <!-- Partner 2 -->
+            <a
+              href="https://sunrisedigital.co.in/"
+              class="col-6 col-md-4 col-lg-3"
+            >
+              <div class="partner-card-glow">
+                <div class="partner-content">
+                  <div class="logo-container">
+                    <img
+                      src="./assets/images/image-200x51-removebg-preview.png"
+                      alt="Sunrise Digital Marketing"
+                      class="partner-logo"
+                    />
+                  </div>
+                  <div class="partner-name">Sunrise Digital Marketing</div>
+                </div>
+                <div class="glow"></div>
+              </div>
+            </a>
+
+            <!-- Partner 3 -->
+            <a
+              href="https://redplutoanalytics.com/"
+              class="col-6 col-md-4 col-lg-3"
+            >
+              <div class="partner-card-glow">
+                <div class="partner-content">
+                  <div class="logo-container">
+                    <img
+                      src="./assets/images/cropped-Footer_logo-1-1.png"
+                      alt="Redpluto Analytics"
+                      class="partner-logo"
+                    />
+                  </div>
+                  <div class="partner-name">Redpluto Analytics</div>
+                </div>
+                <div class="glow"></div>
+              </div>
+            </a>
+
+            <!-- Partner 4 -->
+            <a
+              href="https://oneclickacademy.com/"
+              class="col-6 col-md-4 col-lg-3"
+            >
+              <div class="partner-card-glow">
+                <div class="partner-content">
+                  <div class="logo-container">
+                    <img
+                      src="./assets/images/newlogo.png"
+                      alt="OneClickAcademy"
+                      class="partner-logo"
+                    />
+                  </div>
+                  <div class="partner-name">OneClickAcademy</div>
+                </div>
+                <div class="glow"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container py-5" id="course">
+        <h2 class="text-center mb-4">Featured Courses</h2>
+        <div class="row">
+          <!-- Course Card 1 -->
+          <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/17121.jpg"
+                class="card-img-top"
+                alt="Web Development"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary">Beginner</span>
+                                    <span class="text-success fw-bold">$89.99</span>
+                                </div> -->
+                <h5 class="card-title">Digital Marketing Mastery</h5>
+
+                <p class="card-text text-muted">
+                  Learn SEO, social media marketing, and Google Analytics
+                  strategies.
+                </p>
+               <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>John Smith</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                                        <small class="text-muted"> (1,245)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 8 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 45 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 2 -->
+          <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/20289170_6256878.jpg"
+                class="card-img-top"
+                alt="Data Science"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-warning text-dark">Intermediate</span>
+                                    <span class="text-success fw-bold">$119.99</span>
+                                </div> -->
+                <h5 class="card-title">Forex Fundamentals</h5>
+                <p class="card-text text-muted">
+                  Understand currency markets, trading strategies, risk
+                  management, and economic indicators that move the forex
+                  market.
+                </p>
+               <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>Sarah Johnson</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                                        <small class="text-muted"> (892)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 10 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 62 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 3 -->
+          <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/agentic ai.jpeg"
+                class="card-img-top"
+                alt="Mobile App Development"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-danger">Advanced</span>
+                                    <span class="text-success fw-bold">$149.99</span>
+                                </div> -->
+                <h5 class="card-title">Agentic Ai</h5>
+                <p class="card-text text-muted">
+                  Explore the future of autonomous AI agents—learn how they
+                  reason, act, and collaborate to perform complex tasks without
+                  human intervention.
+                </p>
+
+                <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>Michael Chen</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                        <small class="text-muted"> (1,532)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 12 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 78 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/sixsigma.jpg"
+                class="card-img-top"
+                alt="Mobile App Development"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-danger">Advanced</span>
+                                    <span class="text-success fw-bold">$149.99</span>
+                                </div> -->
+                <h5 class="card-title">Lean Six Sigma Yellow Belt</h5>
+                <p class="card-text text-muted">
+                  Gain a foundational understanding of Lean Six Sigma principles and tools.
+Ideal for individuals involved in process improvement initiatives within teams.
+                </p>
+
+                <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>Michael Chen</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                        <small class="text-muted"> (1,532)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 12 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 78 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
 
 
-        <div class="row justify-content-center">
+
+
+
+          <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/product-management.jpg"
+                class="card-img-top"
+                alt="Mobile App Development"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-danger">Advanced</span>
+                                    <span class="text-success fw-bold">$149.99</span>
+                                </div> -->
+                <h5 class="card-title">Product Management</h5>
+                <p class="card-text text-muted">
+                  Master the art of building products users love — from idea to launch.
+Learn market research, roadmap planning, and cross-functional leadership.
+                </p>
+
+                <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>Michael Chen</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                        <small class="text-muted"> (1,532)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 12 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 78 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          
+  <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
+            <div class="card course-card">
+              <img
+                src="./assets/images/cyber-security.jpg"
+                class="card-img-top"
+                alt="Mobile App Development"
+              />
+              <div class="card-body">
+                <!-- <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-danger">Advanced</span>
+                                    <span class="text-success fw-bold">$149.99</span>
+                                </div> -->
+                <h5 class="card-title">Cyber Security</h5>
+                <p class="card-text text-muted">
+                  Learn to protect systems, networks, and data from digital attacks.
+Understand threats, vulnerabilities, and defense mechanisms used in real-world scenarios.
+                </p>
+
+                <div class="text-center">
+                  <a href="#enroll">
+                    <button type="button" class="btn btn-primary">
+                    Enroll Now
+                  </button>
+                  </a>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <!-- <div class="d-flex align-items-center">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
+                                        <small>Michael Chen</small>
+                                    </div> -->
+                  <!-- <div>
+                                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                        <small class="text-muted"> (1,532)</small>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="card-footer bg-white border-top-0">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted"
+                    ><i class="far fa-clock me-1"></i> 12 weeks</small
+                  >
+                  <small class="text-muted"
+                    ><i class="fas fa-users me-1"></i> 78 lectures</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Course Card 4 -->
+        </div>
+      </div>
+
+      <!-- Course Content -->
+      <!-- <section class="section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center mb-5">
+                            <h2 class="section-title">Course Content forex management</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-exchange-alt text-primary me-2"></i> Fundamental of Foreign Exchange Market</h4>
+                                <ul class="text-muted">
+                                    <li>What is Forex Exchange</li>
+                                    <li>Currency Pairs</li>
+                                    <li>Hierarchy of Currencies</li>
+                                </ul>
+                            </div>
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-chart-line text-primary me-2"></i> Factors Affecting Forex Market</h4>
+                                <ul class="text-muted">
+                                    <li>Economic Indicators</li>
+                                    <li>Interest Rates</li>
+                                    <li>Central bank policies</li>
+                                    <li>Geo-Political Scenarios</li>
+                                </ul>
+                            </div>
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-calculator text-primary me-2"></i> Exchange Rate Mechanism</h4>
+                                <ul class="text-muted">
+                                    <li>Calculation of Rates</li>
+                                    <li>Cross Currency Rates</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-project-diagram text-primary me-2"></i> Forward Premiums and Currency Swaps</h4>
+                                <ul class="text-muted">
+                                    <li>Premiums and Discounts</li>
+                                    <li>Currency Swaps</li>
+                                </ul>
+                            </div>
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-chart-pie text-primary me-2"></i> Technical Analysis</h4>
+                                <ul class="text-muted">
+                                    <li>Chart types and patterns</li>
+                                    <li>Essential Indicators and Oscillators</li>
+                                    <li>Practical application</li>
+                                </ul>
+                            </div>
+                            <div class="course-module p-4 mb-4">
+                                <h4><i class="fas fa-brain text-primary me-2"></i> Trading Psychology</h4>
+                                <ul class="text-muted">
+                                    <li>Risk management essentials</li>
+                                    <li>Trading psychology</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+      <div class="container py-5">
+        <ul class="nav nav-pills course-tabs" id="coursesTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="forex-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#forex"
+              type="button"
+            >
+              <i class="fas fa-globe me-2"></i>Forex
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="marketing-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#marketing"
+              type="button"
+            >
+              <i class="fas fa-bullhorn me-2"></i>Marketing
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="ai-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#ai"
+              type="button"
+            >
+              <i class="fas fa-robot me-2"></i>AI/ML
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Content Wrapper -->
+        <div
+          class="tab-content-wrapper position-relative"
+          style="min-height: 400px"
+        >
+          <div
+            class="tab-content position-absolute w-100"
+            id="coursesTabContent"
+          >
+            <!-- Forex Tab -->
+            <div class="tab-pane fade show active" id="forex" role="tabpanel">
+              <img
+                src="./assets/images/cropped-IBS-Modified-Logo_Transparent_White-BG-1-qziz4k6528sj8iy9xom9bi661qgpqgtpyhgqttmimo.png"
+                alt="IBS FinTech"
+                class="partner-logo"
+              />
+              <h4 class="course-title">
+                Forex Fundamentals – A Doorway to the World of Forex
+              </h4>
+              <p class="course-content">
+                Builds student capability in forex markets, treasury operations,
+                and currency risk management.
+              </p>
+              <ul class="course-features">
+                <li>Expert-led sessions</li>
+                <li>Case-based learning</li>
+                <li>Guaranteed paid internship</li>
+                <li>Placement assistance in relevant roles</li>
+              </ul>
+            </div>
+
+            <!-- Marketing Tab -->
+            <div class="tab-pane fade" id="marketing" role="tabpanel">
+              <img
+                src="./assets/images/image-200x51-removebg-preview.png"
+                alt="Sunrise Digital"
+                class="partner-logo"
+              />
+              <h4 class="course-title">
+                Digital Hustle – Marketing Skills for the Real World
+              </h4>
+              <p class="course-content">
+                Covers digital marketing, social media strategy, influencer
+                marketing, content creation, and analytics.
+              </p>
+              <ul class="course-features">
+                <li>Real-world projects</li>
+                <li>Practitioner mentorship</li>
+                <li>Paid internship opportunities</li>
+                <li>Placement support</li>
+              </ul>
+            </div>
+
+            <!-- AI Tab -->
+            <div class="tab-pane fade" id="ai" role="tabpanel">
+              <img
+                src="./assets/images/cropped-Footer_logo-1-1.png"
+                alt="Redpluto Analytics"
+                class="partner-logo"
+              />
+              <h4 class="course-title">
+                Agentic AI and ML – Exploring the Power of Smart Technologies
+              </h4>
+              <p class="course-content">
+                Provides a hands-on foundation in AI/ML tools, ethical
+                innovation, and real-world use cases.
+              </p>
+              <ul class="course-features">
+                <li>Project-based learning</li>
+                <li>Guidance from working professionals</li>
+                <li>Career pathway support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="highlights" class="section bg-light">
+        <div class="container">
+          <div class="row justify-content-center">
             <div class="col-lg-8 text-center mb-5">
-                <h2 class="section-title">OFFICIAL COURSE PARTNER </h2>
-            
+              <h2 class="section-title">Programme Highlights</h2>
             </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3 class="text-center mb-3">IEP Program</h3>
+                <p class="text-center text-muted mb-0">
+                  Guaranteed paid Internship for hands on learning with minimum
+                  stipend of Rs. 5000
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h3 class="text-center mb-3">Industry Experts</h3>
+                <p class="text-center text-muted mb-0">
+                  Courses Co-Curation by Corporate Institutions and Industry
+                  Experts
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="text-center mb-3">Career Services</h3>
+                <p class="text-center text-muted mb-0">
+                  Strong Career Services for Industry readiness
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3 class="text-center mb-3">Practitioner Lead</h3>
+                <p class="text-center text-muted mb-0">
+                  Market practitioners with years of experience deliver the
+                  course
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 class="text-center mb-3">Mentoring</h3>
+                <p class="text-center text-muted mb-0">
+                  One to one Mentoring of students by Industry experts
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="text-center mb-3">Placement Prep</h3>
+                <p class="text-center text-muted mb-0">
+                  Resume building and placement preparation
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Course Partners -->
-        <section id="partner" class="section partner-section">
-            
-            <div class="container position-relative">
-                <div class="row align-items-center">
-                    <div class="col-lg-5 mb-5 mb-lg-0">
-                        <div class="partner-card p-4 p-lg-5">
-                            <div class="text-center mb-4">
-                                <img src="./assets/images/cropped-IBS-Modified-Logo_Transparent_White-BG-1-qziz4k6528sj8iy9xom9bi661qgpqgtpyhgqttmimo.png" alt="IBS FinTech" class="img-fluid">
+      </section>
+      <!-- Course Partners -->
+      <section id="partner" class="section partner-section">
+                
+                <div class="container position-relative">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 mb-5 mb-lg-0">
+                            <div class="partner-card p-4 p-lg-5">
+                                <div class="text-center mb-4">
+                                    <img src="./assets/images/ibsfintechnewlogo.png" alt="IBS FinTech" class="img-fluid">
+                                </div>
+                                <div class="badge bg-secondary mb-3">OFFICIAL COURSE PARTNER</div>
+                                <h3 class="text-white">In Collaboration With</h3>
+                                <h2 class="text-white mb-4">IBS FinTech</h2>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 text-secondary">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white mb-0">Trusted by 400+ entities globally</h5>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 text-secondary">
+                                        <i class="fas fa-check-circle fa-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white mb-0">$1 Trillion+ transactions processed</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="badge bg-secondary mb-3">OFFICIAL COURSE PARTNER</div>
-                            <h3 class="text-white">In Collaboration With</h3>
-                            <h2 class="text-white mb-4">IBS FinTech</h2>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3 text-secondary">
-                                    <i class="fas fa-check-circle fa-lg"></i>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="ps-lg-5">
+                                <h2 class="text-white mb-4">Industry-Leading <span class="text-secondary">Course Curation</span></h2>
+                                
+                                <div class="bg-white bg-opacity-10 p-4 rounded-3 mb-4">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 text-secondary">
+                                            <i class="fas fa-award fa-2x"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-4">
+                                            <h4 class="text-white">Cutting-Edge TreasuryTech Solutions</h4>
+                                            <p class="text-white">Specializing in cash & liquidity, treasury, risk management, trade finance, and supply chain finance digitization.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h5 class="text-white mb-0">Trusted by 400+ entities globally</h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3 text-secondary">
-                                    <i class="fas fa-check-circle fa-lg"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-white mb-0">$1 Trillion+ transactions processed</h5>
+                                
+                                <p class="text-white mb-4">IBS FinTech stands as a beacon of India's technological prowess, celebrated for its cutting-edge TreasuryTech solutions aimed at driving holistic digitization across cash & liquidity, treasury, risk management, trade finance, and supply chain finance.</p>
+                                
+                                <p class="text-white mb-5">SkillTern Education  is collaborating with IBS Fintech to empower students through a blend of theoretical frameworks, hands-on simulations, and real-world case studies, ensuring they gain practical insights and industry-relevant skills for future leadership roles in corporate finance.</p>
+                                
+                                <div class="d-flex flex-wrap gap-3">
+                                    <a href="https://ibsfintech.com/" target="_blank" class="btn btn-outline-light"><i class="fas fa-external-link-alt me-2"></i> Visit IBS FinTech</a>
+                                    <a href="#course" class="btn btn-secondary"><i class="fas fa-book-open me-2"></i> View Curriculum</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="ps-lg-5">
-                            <h2 class="text-white mb-4">Industry-Leading <span class="text-secondary">Course Curation</span></h2>
-                            
-                            <div class="bg-white bg-opacity-10 p-4 rounded-3 mb-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 text-secondary">
-                                        <i class="fas fa-award fa-2x"></i>
-                                    </div>
-                                    <div class="flex-grow-1 ms-4">
-                                        <h4 class="text-white">Cutting-Edge TreasuryTech Solutions</h4>
-                                        <p class="text-white">Specializing in cash & liquidity, treasury, risk management, trade finance, and supply chain finance digitization.</p>
-                                    </div>
+                </div>
+            </section>
+
+      <!-- Who is this for -->
+      <section class="section bg-light">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+              <h2 class="section-title">Who is this programme for?</h2>
+              <p class="lead text-muted">
+                This comprehensive course is specifically designed for students
+                who wish to deepen their understanding of the foreign exchange
+                (forex) market.
+              </p>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Finance Students</h3>
+                <p class="text-muted">
+                  Pursuing a career in finance, international business, or risk
+                  management.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Aspiring Traders</h3>
+                <p class="text-muted">
+                  Looking to acquire skills for effective forex management and
+                  technical analysis.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <h3>Professionals</h3>
+                <p class="text-muted">
+                  Wanting to navigate the complexities of global currency
+                  markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Duration -->
+      <section class="section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+              <h2 class="section-title">
+                Program Duration: <span class="text-primary">6 Months</span>
+              </h2>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="feature-card p-5 text-center bg-primary text-white">
+                <h3 class="display-5 fw-bold mb-2">4 Months</h3>
+                <p class="mb-0">Hands on Learning</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-5 text-center bg-secondary text-white">
+                <h3 class="display-5 fw-bold mb-2">4 Weeks</h3>
+                <p class="mb-0">
+                  Market Simulation Project and Paid Internship
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-5 text-center bg-dark text-white">
+                <h3 class="display-5 fw-bold mb-2">15 Days</h3>
+                <p class="mb-0">Placement Preparation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Learn Forex -->
+      <section class="section bg-light">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="Forex Trading"
+                  class="img-fluid rounded-3 shadow"
+                />
+                <div
+                  class="position-absolute bottom-0 start-0 bg-white p-3 m-3 rounded-3 shadow-sm"
+                >
+                  <h5 class="text-primary mb-0">Forex Market Insights</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h2 class="section-title text-start mb-4">
+                Why Learn Forex Management
+              </h2>
+              <p class="mb-4">
+                By the end of this course, you'll not only have a comprehensive
+                understanding of forex markets but also the confidence and
+                practical skills to excel in your career.
+              </p>
+              <ul class="list-unstyled">
+                <li class="mb-3 d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-0">Manage corporate treasuries</h5>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-0">Thrive in the trading room</h5>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-0">Innovate in fintech</h5>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-0">
+                      Unlimited opportunities with the right knowledge
+                    </h5>
+                  </div>
+                </li>
+              </ul>
+              <a href="#enroll" class="btn btn-primary mt-3 px-4"
+                >Start Learning Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Career Opportunities -->
+      <section id="careers" class="section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+              <h2 class="section-title">Career Opportunities in Forex</h2>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card h-100">
+                <div class="card-header bg-primary text-white p-4">
+                  <h3 class="h5 mb-0">Banking Sector</h3>
+                </div>
+                <div class="card-body p-4">
+                  <h4 class="h6">Forex Dealer/Trader</h4>
+                  <ul class="small text-muted">
+                    <li>Assisting in forex trading desks</li>
+                    <li>Handling interbank transactions</li>
+                    <li>Managing forex risk</li>
+                  </ul>
+                  <h4 class="h6 mt-3">Treasury Analyst</h4>
+                  <ul class="small text-muted">
+                    <li>Monitoring exchange rates</li>
+                    <li>Forex exposure management</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card h-100">
+                <div class="card-header bg-primary text-white p-4">
+                  <h3 class="h5 mb-0">Corporate Treasury</h3>
+                </div>
+                <div class="card-body p-4">
+                  <h4 class="h6">Forex Analyst</h4>
+                  <ul class="small text-muted">
+                    <li>Managing foreign currency transactions</li>
+                    <li>Hedging strategies</li>
+                    <li>Working with financial institutions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card h-100">
+                <div class="card-header bg-primary text-white p-4">
+                  <h3 class="h5 mb-0">Financial Services</h3>
+                </div>
+                <div class="card-body p-4">
+                  <h4 class="h6">Forex Risk Analyst</h4>
+                  <ul class="small text-muted">
+                    <li>Analyzing forex risk</li>
+                    <li>Advising on currency movements</li>
+                  </ul>
+                  <h4 class="h6 mt-3">Forex Sales Executive</h4>
+                  <ul class="small text-muted">
+                    <li>Selling forex services</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card h-100">
+                <div class="card-header bg-primary text-white p-4">
+                  <h3 class="h5 mb-0">FinTech Companies</h3>
+                </div>
+                <div class="card-body p-4">
+                  <h4 class="h6">Financial Analyst</h4>
+                  <ul class="small text-muted">
+                    <li>International payments</li>
+                    <li>Forex trading platforms</li>
+                  </ul>
+                  <h4 class="h6 mt-3">Operations Associate</h4>
+                  <ul class="small text-muted">
+                    <li>Managing forex transactions</li>
+                    <li>Cross-border trade</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Highlights -->
+
+      <!-- <section id="about" class="section bg-light">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 mb-5 mb-lg-0">
+                            <div class="position-relative">
+                                <img src="./assets/images/image-500x600.jpg" alt="Sudip Dhar" class="img-fluid rounded-3 shadow">
+                                <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
+                                    <h5 class="mb-0">Founder & CEO</h5>
                                 </div>
                             </div>
-                            
-                            <p class="text-white mb-4">IBS FinTech stands as a beacon of India's technological prowess, celebrated for its cutting-edge TreasuryTech solutions aimed at driving holistic digitization across cash & liquidity, treasury, risk management, trade finance, and supply chain finance.</p>
-                            
-                            <p class="text-white mb-5">Skilltern is collaborating with IBS Fintech to empower students through a blend of theoretical frameworks, hands-on simulations, and real-world case studies, ensuring they gain practical insights and industry-relevant skills for future leadership roles in corporate finance.</p>
-                            
+                        </div>
+                        <div class="col-lg-7">
+                            <h2 class="section-title text-start mb-4">About The Founder</h2>
+                            <h3 class="mb-3">Sudip Dhar</h3>
+                            <p class="text-muted mb-4">Founder & CEO, SkillTern Education Education Education | ISB Alum</p>
+                            <p class="mb-4">Sudip Dhar is the Founder and CEO of SkillTerm, an innovative EdTech platform dedicated to bridging the gap between education & employment. With nearly two decades of experience in career services, industry-academia partnerships, and skill development, he has transformed how students and professionals acquire job-ready skills.</p>
+                            <p class="mb-5">Driven by the vision of industry-immersive and employment-oriented learning, Sudip pioneered internship-embedded programs at SkillTerm, ensuring real-world experience alongside theoretical knowledge.</p>
                             <div class="d-flex flex-wrap gap-3">
-                                <a href="https://ibsfintech.com/" target="_blank" class="btn btn-outline-light"><i class="fas fa-external-link-alt me-2"></i> Visit IBS FinTech</a>
-                                <a href="#course" class="btn btn-secondary"><i class="fas fa-book-open me-2"></i> View Curriculum</a>
+                                <a href="https://www.linkedin.com/in/sudip-dhar-38bb6814/" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin-in me-2"></i> Connect</a>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section> -->
 
-        <!-- Who is this for -->
-        <section  class="section bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Who is this programme for?</h2>
-                        <p class="lead text-muted">This comprehensive course is specifically designed for students who wish to deepen their understanding of the foreign exchange (forex) market.</p>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="feature-card p-4 text-center h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <h3>Finance Students</h3>
-                            <p class="text-muted">Pursuing a career in finance, international business, or risk management.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card p-4 text-center h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <h3>Aspiring Traders</h3>
-                            <p class="text-muted">Looking to acquire skills for effective forex management and technical analysis.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card p-4 text-center h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <h3>Professionals</h3>
-                            <p class="text-muted">Wanting to navigate the complexities of global currency markets.</p>
-                        </div>
-                    </div>
-                </div>
+      <!-- Placement Preparation -->
+      <section class="section bg-light">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+              <h2 class="section-title">Placement Preparation</h2>
             </div>
-        </section>
-
-        <!-- Program Duration -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Program Duration: <span class="text-primary">6 Months</span></h2>
-                    </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-code-branch"></i>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="feature-card p-5 text-center bg-primary text-white">
-                            <h3 class="display-5 fw-bold mb-2">4 Months</h3>
-                            <p class="mb-0">Hands on Learning</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card p-5 text-center bg-secondary text-white">
-                            <h3 class="display-5 fw-bold mb-2">4 Weeks</h3>
-                            <p class="mb-0">Market Simulation Project and Paid Internship</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="feature-card p-5 text-center bg-dark text-white">
-                            <h3 class="display-5 fw-bold mb-2">15 Days</h3>
-                            <p class="mb-0">Placement Preparation</p>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-center">Project Development</h4>
+                <p class="small text-center text-muted mb-0">
+                  Mentors will assist students in creating accounts and posting
+                  projects on GitHub and Kaggle.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- Why Learn Forex -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Forex Trading" class="img-fluid rounded-3 shadow">
-                            <div class="position-absolute bottom-0 start-0 bg-white p-3 m-3 rounded-3 shadow-sm">
-                                <h5 class="text-primary mb-0">Forex Market Insights</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="section-title text-start mb-4">Why Learn Forex Management</h2>
-                        <p class="mb-4">By the end of this course, you'll not only have a comprehensive understanding of forex markets but also the confidence and practical skills to excel in your career.</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-3 d-flex">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">Manage corporate treasuries</h5>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">Thrive in the trading room</h5>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">Innovate in fintech</h5>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex">
-                                <div class="me-3 text-primary">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">Unlimited opportunities with the right knowledge</h5>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="#enroll" class="btn btn-primary mt-3 px-4">Start Learning Now</a>
-                    </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-comments"></i>
                 </div>
+                <h4 class="text-center">Interview Coaching</h4>
+                <p class="small text-center text-muted mb-0">
+                  Personalized guidance to help you understand various
+                  industries and roles.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- Career Opportunities -->
-        <section id="careers" class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Career Opportunities in Forex</h2>
-                    </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-file-alt"></i>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card h-100">
-                            <div class="card-header bg-primary text-white p-4">
-                                <h3 class="h5 mb-0">Banking Sector</h3>
-                            </div>
-                            <div class="card-body p-4">
-                                <h4 class="h6">Forex Dealer/Trader</h4>
-                                <ul class="small text-muted">
-                                    <li>Assisting in forex trading desks</li>
-                                    <li>Handling interbank transactions</li>
-                                    <li>Managing forex risk</li>
-                                </ul>
-                                <h4 class="h6 mt-3">Treasury Analyst</h4>
-                                <ul class="small text-muted">
-                                    <li>Monitoring exchange rates</li>
-                                    <li>Forex exposure management</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card h-100">
-                            <div class="card-header bg-primary text-white p-4">
-                                <h3 class="h5 mb-0">Corporate Treasury</h3>
-                            </div>
-                            <div class="card-body p-4">
-                                <h4 class="h6">Forex Analyst</h4>
-                                <ul class="small text-muted">
-                                    <li>Managing foreign currency transactions</li>
-                                    <li>Hedging strategies</li>
-                                    <li>Working with financial institutions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card h-100">
-                            <div class="card-header bg-primary text-white p-4">
-                                <h3 class="h5 mb-0">Financial Services</h3>
-                            </div>
-                            <div class="card-body p-4">
-                                <h4 class="h6">Forex Risk Analyst</h4>
-                                <ul class="small text-muted">
-                                    <li>Analyzing forex risk</li>
-                                    <li>Advising on currency movements</li>
-                                </ul>
-                                <h4 class="h6 mt-3">Forex Sales Executive</h4>
-                                <ul class="small text-muted">
-                                    <li>Selling forex services</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card h-100">
-                            <div class="card-header bg-primary text-white p-4">
-                                <h3 class="h5 mb-0">FinTech Companies</h3>
-                            </div>
-                            <div class="card-body p-4">
-                                <h4 class="h6">Financial Analyst</h4>
-                                <ul class="small text-muted">
-                                    <li>International payments</li>
-                                    <li>Forex trading platforms</li>
-                                </ul>
-                                <h4 class="h6 mt-3">Operations Associate</h4>
-                                <ul class="small text-muted">
-                                    <li>Managing forex transactions</li>
-                                    <li>Cross-border trade</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-center">Resume Assistance</h4>
+                <p class="small text-center text-muted mb-0">
+                  Expert tips on crafting compelling resumes and cover letters.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- Program Highlights -->
-        <section id="highlights" class="section bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Programme Highlights</h2>
-                    </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="feature-card p-4 h-100">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-network-wired"></i>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-hand-holding-usd"></i>
-                            </div>
-                            <h3 class="text-center mb-3">IEP Program</h3>
-                            <p class="text-center text-muted mb-0">Guaranteed paid Internship for hands on learning with minimum stipend of Rs. 5000</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Industry Experts</h3>
-                            <p class="text-center text-muted mb-0">Courses Co-Curation by Corporate Institutions and Industry Experts</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Career Services</h3>
-                            <p class="text-center text-muted mb-0">Strong Career Services for Industry readiness</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Practitioner Lead</h3>
-                            <p class="text-center text-muted mb-0">Market practitioners with years of experience deliver the course</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Mentoring</h3>
-                            <p class="text-center text-muted mb-0">One to one Mentoring of students by Industry experts</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3 class="text-center mb-3">Placement Prep</h3>
-                            <p class="text-center text-muted mb-0">Resume building and placement preparation</p>
-                        </div>
-                    </div>
-                </div>
+                <h4 class="text-center">Networking</h4>
+                <p class="small text-center text-muted mb-0">
+                  Tips on how to leverage professional connections.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <div class="container py-5" id="course">
-            <h2 class="text-center mb-4">Featured Courses</h2>
-            <div class="row">
-                <!-- Course Card 1 -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card course-card">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Web Development">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="badge bg-primary">Beginner</span>
-                                <span class="text-success fw-bold">$89.99</span>
-                            </div>
-                            <h5 class="card-title">Web Development Fundamentals</h5>
-                            <p class="card-text text-muted">Learn HTML, CSS, and JavaScript to build modern responsive websites.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Instructor" class="instructor-img me-2">
-                                    <small>John Smith</small>
-                                </div>
-                                <!-- <div>
-                                    <span class="rating"><i class="fas fa-star"></i> 4.7</span>
-                                    <small class="text-muted"> (1,245)</small>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-top-0">
-                            <div class="d-flex justify-content-between">
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> 8 weeks</small>
-                                <small class="text-muted"><i class="fas fa-users me-1"></i> 45 lectures</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Course Card 2 -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card course-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Data Science">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="badge bg-warning text-dark">Intermediate</span>
-                                <span class="text-success fw-bold">$119.99</span>
-                            </div>
-                            <h5 class="card-title">Data Science with Python</h5>
-                            <p class="card-text text-muted">Master data analysis, visualization, and machine learning with Python.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Instructor" class="instructor-img me-2">
-                                    <small>Sarah Johnson</small>
-                                </div>
-                                <!-- <div>
-                                    <span class="rating"><i class="fas fa-star"></i> 4.8</span>
-                                    <small class="text-muted"> (892)</small>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-top-0">
-                            <div class="d-flex justify-content-between">
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> 10 weeks</small>
-                                <small class="text-muted"><i class="fas fa-users me-1"></i> 62 lectures</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Course Card 3 -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card course-card">
-                        <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Mobile App Development">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="badge bg-danger">Advanced</span>
-                                <span class="text-success fw-bold">$149.99</span>
-                            </div>
-                            <h5 class="card-title">Mobile App Development</h5>
-                            <p class="card-text text-muted">Build cross-platform mobile apps with React Native and Firebase.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Instructor" class="instructor-img me-2">
-                                    <small>Michael Chen</small>
-                                </div>
-                                <!-- <div>
-                                    <span class="rating"><i class="fas fa-star"></i> 4.9</span>
-                                    <small class="text-muted"> (1,532)</small>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-top-0">
-                            <div class="d-flex justify-content-between">
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> 12 weeks</small>
-                                <small class="text-muted"><i class="fas fa-users me-1"></i> 78 lectures</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Course Card 4 -->
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card course-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Digital Marketing">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="badge bg-info">Beginner</span>
-                                <span class="text-success fw-bold">$79.99</span>
-                            </div>
-                            <h5 class="card-title">Digital Marketing Mastery</h5>
-                            <p class="card-text text-muted">Learn SEO, social media marketing, and Google Analytics strategies.</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Instructor" class="instructor-img me-2">
-                                    <small>Emily Wilson</small>
-                                </div>
-                                <!-- <div>
-                                    <span class="rating"><i class="fas fa-star"></i> 4.6</span>
-                                    <small class="text-muted"> (756)</small>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-top-0">
-                            <div class="d-flex justify-content-between">
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> 6 weeks</small>
-                                <small class="text-muted"><i class="fas fa-users me-1"></i> 32 lectures</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- Course Content -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Course Content forex management</h2>
+      <!-- Enrollment Section -->
+      <section id="enroll" class="section enrollment-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+  <h2 class="text-white mb-3">Unlock Your Career Potential</h2>
+  <p class="lead text-white-50">
+    Enroll today and get access to industry-aligned skill programs that prepare you for the future.
+  </p>
+</div>
+
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="price-card p-5">
+              <div class="text-center text-white mb-4">
+  <h3>Join SkillTern Education  Today</h3>
+  <p class="mt-2">Take the next step toward industry-aligned training and job-ready skills.</p>
+</div>
+                <!-- <div class="d-flex justify-content-between align-items-center mb-4 p-4 bg-dark rounded-3">
+                                    <h4 class="text-white mb-0">Student Discount Price</h4>
+                                    <div class="text-end">
+                                        <p class="text-decoration-line-through text-white-50 mb-0">₹60,000</p>
+                                        <h3 class="text-warning mb-0">₹48,999</h3>
+                                    </div>
+                                </div> -->
+
+                <form class="styled-form"     method="POST"
+                  action="student_submission.php">
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          placeholder=""
+                          required
+                        />
+                        <label for="name">Full Name</label>
+                      </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-exchange-alt text-primary me-2"></i> Fundamental of Foreign Exchange Market</h4>
-                            <ul class="text-muted">
-                                <li>What is Forex Exchange</li>
-                                <li>Currency Pairs</li>
-                                <li>Hierarchy of Currencies</li>
-                            </ul>
-                        </div>
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-chart-line text-primary me-2"></i> Factors Affecting Forex Market</h4>
-                            <ul class="text-muted">
-                                <li>Economic Indicators</li>
-                                <li>Interest Rates</li>
-                                <li>Central bank policies</li>
-                                <li>Geo-Political Scenarios</li>
-                            </ul>
-                        </div>
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-calculator text-primary me-2"></i> Exchange Rate Mechanism</h4>
-                            <ul class="text-muted">
-                                <li>Calculation of Rates</li>
-                                <li>Cross Currency Rates</li>
-                            </ul>
-                        </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <input
+                          type="email"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                          placeholder=""
+                          required
+                        />
+                        <label for="email">Email Address</label>
+                      </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-project-diagram text-primary me-2"></i> Forward Premiums and Currency Swaps</h4>
-                            <ul class="text-muted">
-                                <li>Premiums and Discounts</li>
-                                <li>Currency Swaps</li>
-                            </ul>
-                        </div>
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-chart-pie text-primary me-2"></i> Technical Analysis</h4>
-                            <ul class="text-muted">
-                                <li>Chart types and patterns</li>
-                                <li>Essential Indicators and Oscillators</li>
-                                <li>Practical application</li>
-                            </ul>
-                        </div>
-                        <div class="course-module p-4 mb-4">
-                            <h4><i class="fas fa-brain text-primary me-2"></i> Trading Psychology</h4>
-                            <ul class="text-muted">
-                                <li>Risk management essentials</li>
-                                <li>Trading psychology</li>
-                            </ul>
-                        </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <input
+                          type="tel"
+                          name="phone"
+                          class="form-control"
+                          id="phone"
+                          required
+                          placeholder=""
+                        />
+                        <label for="phone">Phone Number</label>
+                      </div>
                     </div>
-                </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <select class="form-select" name="education" id="education" required>
+                          <option selected disabled value="">Select</option>
+                          <option>Current Student</option>
+                          <option>Graduate</option>
+                          <option>Working Professional</option>
+                        </select>
+                        <label for="education">Education Level</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <textarea
+                          class="form-control"
+                          required
+                          id="questions"
+                          name="questions"
+                          placeholder=""
+                          style="height: 120px"
+                        ></textarea>
+                        <label for="questions">Any questions?</label>
+                      </div>
+                    </div>
+                    <div class="g-recaptcha mt-3" data-sitekey="6LdaUn0rAAAAAJQM-B_fXCgBEdOsDiFCyeupNy3Z"></div>
+                  </div>
+                    <div class="col-12">
+                      <button
+                        type="submit"
+                        class="btn btn-warning w-100 btn-lg"
+                      >
+                        Enroll Now <i class="fas fa-arrow-right ms-2"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Placement Preparation -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="section-title">Placement Preparation</h2>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-code-branch"></i>
-                            </div>
-                            <h4 class="text-center">Project Development</h4>
-                            <p class="small text-center text-muted mb-0">Mentors will assist students in creating accounts and posting projects on GitHub and Kaggle.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <h4 class="text-center">Interview Coaching</h4>
-                            <p class="small text-center text-muted mb-0">Personalized guidance to help you understand various industries and roles.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h4 class="text-center">Resume Assistance</h4>
-                            <p class="small text-center text-muted mb-0">Expert tips on crafting compelling resumes and cover letters.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-card p-4 h-100">
-                            <div class="feature-icon mx-auto">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <h4 class="text-center">Networking</h4>
-                            <p class="small text-center text-muted mb-0">Tips on how to leverage professional connections.</p>
-                        </div>
-                    </div>
-                </div>
+      <!-- Footer -->
+      <footer class="footer pt-5 pb-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="mb-4">
+                <img
+  src="./assets/images/logoooooo.png"
+  alt="SkillTern Education Education Education Logo"
+  class="img-fluid footer-navbar mb-3"
+  style="max-height: 120px;"
+/>
+
+                <p class="text-white-50">
+                  A doorway to the world of Forex trading and management.
+                </p>
+              </div>
+              <div class="d-flex gap-3">
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
             </div>
-        </section>
-
-        <!-- Enrollment Section -->
-        <section id="enroll" class="section enrollment-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center mb-5">
-                        <h2 class="text-white mb-3">Ready to Start Your Forex Journey?</h2>
-                        <p class="lead text-white-50">Enroll now and take the first step towards a successful career in forex management.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="price-card p-5">
-                            <h3 class="text-center text-white mb-4">Course Fees</h3>
-                            <div class="d-flex justify-content-between align-items-center mb-4 p-4 bg-dark rounded-3">
-                                <h4 class="text-white mb-0">Student Discount Price</h4>
-                                <div class="text-end">
-                                    <p class="text-decoration-line-through text-white-50 mb-0">₹60,000</p>
-                                    <h3 class="text-warning mb-0">₹48,999</h3>
-                                </div>
-                            </div>
-
-                            <form class="styled-form">
-                                <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="">
-                                    <label for="name">Full Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="">
-                                    <label for="email">Email Address</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                    <input type="tel" class="form-control" id="phone" placeholder="">
-                                    <label for="phone">Phone Number</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                    <select class="form-select" id="education">
-                                        <option selected disabled value="">Select</option>
-                                        <option>Current Student</option>
-                                        <option>Graduate</option>
-                                        <option>Working Professional</option>
-                                    </select>
-                                    <label for="education">Education Level</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                    <textarea class="form-control" id="questions" placeholder="" style="height: 120px"></textarea>
-                                    <label for="questions">Any questions?</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-warning w-100 btn-lg">Enroll Now <i class="fas fa-arrow-right ms-2"></i></button>
-                                </div>
-                                </div>
-                            </form>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-white mb-4">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#home" class="text-white-50 text-decoration-none"
+                    >Home</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#about" class="text-white-50 text-decoration-none"
+                    >About</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#course" class="text-white-50 text-decoration-none"
+                    >Course</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#careers" class="text-white-50 text-decoration-none"
+                    >Careers</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#enroll" class="text-white-50 text-decoration-none"
+                    >Enroll</a
+                  >
+                </li>
+              </ul>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer pt-5 pb-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="mb-4">
-                            <img src="./assets/images/skillternlogo.png" alt="SkillTern Logo" class="img-fluid footer-navbar mb-3" style="height: 80px;">
-                            <p class="text-white-50">A doorway to the world of Forex trading and management.</p>
-                        </div>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-white mb-4">Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#home" class="text-white-50 text-decoration-none">Home</a></li>
-                            <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About</a></li>
-                            <li class="mb-2"><a href="#course" class="text-white-50 text-decoration-none">Course</a></li>
-                            <li class="mb-2"><a href="#careers" class="text-white-50 text-decoration-none">Careers</a></li>
-                            <li class="mb-2"><a href="#enroll" class="text-white-50 text-decoration-none">Enroll</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-white mb-4">Programme</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Forex Fundamentals</a></li>
-                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Internship Program</a></li>
-                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Placement Support</a></li>
-                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Mentorship</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Contact Us</h5>
-                        <ul class="list-unstyled text-white-50">
-                            <li class="mb-3 d-flex">
-                                <i class="fas fa-map-marker-alt mt-1 me-3"></i>
-                                <span>SkillTern Headquarters, India</span>
-                            </li>
-                            <li class="mb-3 d-flex">
-                                <i class="fas fa-phone mt-1 me-3"></i>
-                                <span>+91 1234567890</span>
-                            </li>
-                            <li class="mb-3 d-flex">
-                                <i class="fas fa-envelope mt-1 me-3"></i>
-                                <span>info@skilltern.com</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="my-4 bg-secondary">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="small text-white-50 mb-0">&copy; 2025 SkillTern. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <p class="small text-white-50 mb-0">Designed with <i class="fas fa-heart text-danger"></i> by SunriseDigital</p>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-white mb-4">Programme</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-white-50 text-decoration-none"
+                    >Forex Fundamentals</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white-50 text-decoration-none"
+                    >Internship Program</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white-50 text-decoration-none"
+                    >Placement Support</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white-50 text-decoration-none"
+                    >Mentorship</a
+                  >
+                </li>
+              </ul>
             </div>
-        </footer>
+            <div class="col-lg-3 col-md-6">
+              <h5 class="text-white mb-4">Contact Us</h5>
+              <ul class="list-unstyled text-white-50">
+                <li class="mb-3 d-flex">
+                  <i class="fas fa-map-marker-alt mt-1 me-3"></i>
+                  <span
+                    >SkillTern Education  PRIVATE LIMITED C-001, MBM GREEN WOOD
+                    APT, VENKATESHWARA BDA GOTTIGE, Gottigere, Bangalore South,
+                    Bangalore – 560083, Karnataka, India.</span
+                  >
+                </li>
+                <!-- <li class="mb-3 d-flex">
+                  <i class="fas fa-phone mt-1 me-3"></i>
+                  <span>+91 1234567890</span>
+                </li> -->
+                <!-- <li class="mb-3 d-flex">
+                  <i class="fas fa-envelope mt-1 me-3"></i>
+                  <span>info@SkillTern Education Education Education.com</span>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+          <hr class="my-4 bg-secondary" />
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="small text-white-50 mb-0">
+                &copy; 2025 SkillTern Education. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <p class="small text-white-50 mb-0">
+                Designed with <i class="fas fa-heart text-danger"></i> by
+                SunriseDigital
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            // Sticky navbar on scroll
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Activate navbar item on scroll
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-link');
-            
-            window.addEventListener('scroll', function() {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (pageYOffset >= sectionTop - 200) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href') === '#' + current) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-        </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script>
+  const swiper = new Swiper(".heroSwiper", {
+    loop: true,
+    speed: 1000,
 
-        <script>
-            // JavaScript for additional functionality
-            document.addEventListener('DOMContentLoaded', function() {
-                // Add click event to all course cards
-                const courseCards = document.querySelectorAll('.course-card');
-                
-                courseCards.forEach(card => {
-                    card.addEventListener('click', function() {
-                        const courseTitle = this.querySelector('.card-title').textContent;
-                        console.log(`Course selected: ${courseTitle}`);
-                        // In a real application, you might navigate to a course details page
-                        // window.location.href = `/course-details?title=${encodeURIComponent(courseTitle)}`;
-                    });
-                    
-                    // Change cursor to pointer on hover
-                    card.style.cursor = 'pointer';
-                });
-                
-                // You could add more interactive features here
-            });
-        </script>
-    </body>
-    </html>
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+    <script>
+      // Sticky navbar on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Activate navbar item on scroll
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", function () {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === "#" + current) {
+            item.classList.add("active");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      // JavaScript for additional functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add click event to all course cards
+        const courseCards = document.querySelectorAll(".course-card");
+
+        courseCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            const courseTitle = this.querySelector(".card-title").textContent;
+            console.log(`Course selected: ${courseTitle}`);
+            // In a real application, you might navigate to a course details page
+            // window.location.href = `/course-details?title=${encodeURIComponent(courseTitle)}`;
+          });
+
+          // Change cursor to pointer on hover
+          card.style.cursor = "pointer";
+        });
+
+        // You could add more interactive features here
+      });
+    </script>
+
+     <script>
+    const nextBtn = document.querySelector('.nav-next');
+    const prevBtn = document.querySelector('.nav-prev');
+    const track = document.querySelector('.showcase-track');
+
+    nextBtn.addEventListener('click', () => {
+      const cards = document.querySelectorAll('.showcase-card');
+      track.appendChild(cards[0]);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const cards = document.querySelectorAll('.showcase-card');
+      track.prepend(cards[cards.length - 1]);
+    });
+  </script>
+   <script>
+        new Swiper(".healthcareSwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 80,
+                depth: 200,
+                modifier: 1,
+                slideShadows: false, // recommended since we're using blur
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1.2,
+                },
+                768: {
+                    slidesPerView: 2.2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+  </body>
+</html>
